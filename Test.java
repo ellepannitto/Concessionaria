@@ -8,9 +8,11 @@ public class Test
 		Concessionaria c = new Concessionaria();
 		
 		AutoNuova uno = new AutoNuova("BC911LV", "Lancia Y", 1200, "cremisi", 42, new Date(2016, 12, 3), new Cliente("Lucio", "Messina", "LCCMSS"));
+		AutoNuova uno_b = new AutoNuova("BC911HV", "Lancia Y", 1200, "cremisi", 42, new Date(2016, 12, 3), new Cliente("Paolo", "Messina", "LCCMSS"));
 		AutoUsata due = new AutoUsata("BD500OG", "Nissan Micra", 1000, "blu", 34, 2005, 300000);
 		
 		c.add_auto(uno);
+		c.add_auto(uno_b);
 		c.add_auto(due);
 		
 		uno = new AutoNuova("AA502DX", "Lancia Y", 1800, "rossa", 55, new Date(2012, 10, 25), new Cliente("Ludo", "Pannitto", "LPPPNTT"));
@@ -40,7 +42,7 @@ public class Test
 		System.out.println("--- filtrati ----");
 	
 
-		prima_lista = c.filter_autos ( new FilterByCustomerSurname ( "mess"  ));
+		prima_lista = c.filter_autos ( new FilterByCustomer ( "mess", "p" ) );
 		
 		for (int i=0; i<prima_lista.length; i++)
 		{

@@ -15,4 +15,9 @@ public class Cliente
 	{
 		return cognome;
 	}
+
+	public String getName ()
+	{
+		return nome;
+	}
 }

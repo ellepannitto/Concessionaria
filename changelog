@@ -1,3 +1,10 @@
+Concessionaria ver 0.2.1
+  
+  * FilterByCostumerSurname is now FilterByCostumer
+  * FilterByCostumer can filter by surname or by surname + name
+
+-- Ludovica Pannitto <ellepannitto@gmail.com> Thu, 15 Sep 2016 23:11 +0200
+
 Concessionaria ver 0.2
   
   * MultipleFiltererAuto now accepts List instead of Array
