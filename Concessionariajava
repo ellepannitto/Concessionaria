@@ -1,0 +1,5 @@
+
+public class Concessionaria
+{
+	private Vector<Auto> archivio;
+}
