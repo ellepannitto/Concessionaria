@@ -25,9 +25,9 @@ public class FilterByCustomerSurname implements Filterer<Auto>
 			String cognome = c.getSurname();
 		
 			Matcher m = p.matcher(cognome);
-			boolean ret_regex = m.matches();
+			boolean ret_regex = m.find();
 		
-			boolean ret_substr = cognome.contains(s);
+			boolean ret_substr = cognome.toLowerCase().contains(s.toLowerCase());
 			
 			ret = ret_regex || ret_substr;
 		}

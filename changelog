@@ -1,3 +1,10 @@
+Concessionaria ver 0.2
+  
+  * MultipleFiltererAuto now accepts List instead of Array
+  * Filters Tested
+
+-- Ludovica Pannitto <ellepannitto@gmail.com> Thu, 15 Sep 2016 22:58 +0200
+
 Concessionaria ver 0.1
   
   * first commit

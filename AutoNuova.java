@@ -28,4 +28,9 @@ public class AutoNuova extends Auto
 		return this.cliente;
 	}
 	
+	public Date getDeliveryDate()
+	{
+		return this.data_di_consegna;
+	}
+	
 }

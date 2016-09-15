@@ -59,17 +59,58 @@ public class Concessionaria
 		
 	}
 	
-	public boolean setNewDeliveryDate (Auto a, Data data)
+	public boolean setNewDeliveryDate (Auto a, Date data)
 	{
 		int presente = archivio.indexOf(a);
 		
+		Auto old = null;
+		
 		if (presente > -1)
 		{
-			Auto old = archivio.get(presente);
-			old.setNewDate(data);
+			old = archivio.get(presente);
+			
+			if (old instanceof AutoNuova)
+			{
+				((AutoNuova)old).setNewDate(data);
+			}
 		}
 			
-		return presente > -1;
+		return presente > -1 && old instanceof AutoNuova;
+	}
+	
+	public Auto getNextDelivery()
+	{
+		Date now = new Date();
+		
+		long min = -1;
+		Auto next = null;
+		
+		for (Auto a : archivio)
+		{
+			if (a instanceof AutoNuova )
+			{
+				Date consegna = ((AutoNuova)a).getDeliveryDate();
+				
+				long diff = consegna.getTime() - now.getTime();
+				
+				if (min < 0)
+				{
+					min = diff;
+					next = archivio.get( archivio.indexOf(a) );
+				}
+				else
+				{
+					if (diff < min)
+					{
+						min = diff;
+						next = archivio.get( archivio.indexOf(a) );
+					}
+				}
+				
+			}
+		}
+		
+		return next;
 	}
 	
 }

@@ -1,9 +1,10 @@
+import java.util.*;
 
 public class MultipleFiltererAuto implements Filterer<Auto>
 {
-	private Filterer<Auto>[] lista_filtri;
+	private List <Filterer<Auto>> lista_filtri;
 	
-	public MultipleFiltererAuto (Filterer<Auto>[] lista_condizioni)
+	public MultipleFiltererAuto (List<Filterer<Auto>> lista_condizioni)
 	{
 		this.lista_filtri = lista_condizioni;
 	}
