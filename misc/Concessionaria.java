@@ -1,6 +1,7 @@
 package misc;
 
 import java.util.*;
+import java.io.*;
 
 import filters.*;
 
@@ -12,11 +13,21 @@ import filters.*;
  * 
  * */
 
-public class Concessionaria
+public class Concessionaria 
 {
 	private Vector<Auto> archivio = new Vector<Auto>();
 	
 	private Vector<Cliente> clienti_registrati;
+
+	public Concessionaria ()
+	{
+		;
+	}
+
+	public Concessionaria (String filename)
+	{
+		load(filename);
+	}
 
 	public boolean add_auto (Auto auto)
 	{
@@ -59,11 +70,9 @@ public class Concessionaria
 		}
 		
 		return return_list.toArray( new Auto[return_list.size()] );
-		
-		
 	}
 	
-	public boolean setNewDeliveryDate (Auto a, Date data)
+	public boolean setNewDeliveryDate (Auto a, GregorianCalendar data)
 	{
 		int presente = archivio.indexOf(a);
 		
@@ -75,7 +84,7 @@ public class Concessionaria
 			
 			if (old instanceof AutoNuova)
 			{
-				((AutoNuova)old).setNewDate(data);
+				((AutoNuova)old).setNewGregorianCalendar(data);
 			}
 		}
 			
@@ -84,7 +93,7 @@ public class Concessionaria
 	
 	public Auto getNextDelivery()
 	{
-		Date now = new Date();
+		GregorianCalendar now = new GregorianCalendar();
 		
 		long min = -1;
 		Auto next = null;
@@ -93,9 +102,9 @@ public class Concessionaria
 		{
 			if (a instanceof AutoNuova )
 			{
-				Date consegna = ((AutoNuova)a).getDeliveryDate();
+				GregorianCalendar consegna = ((AutoNuova)a).getDeliveryDate();
 				
-				long diff = consegna.getTime() - now.getTime();
+				long diff = consegna.getTime().getTime() - now.getTime().getTime();
 				
 				if (min < 0)
 				{
@@ -115,6 +124,38 @@ public class Concessionaria
 		}
 		
 		return next;
+	}
+	
+	public void dump (String filename)
+	{
+		try
+		{
+			FileOutputStream fout = new FileOutputStream(filename);
+			ObjectOutputStream oout = new ObjectOutputStream(fout);
+			oout.writeObject(archivio);
+			oout.close();
+		}
+		catch (Exception e)
+		{
+			;
+		}
+	}
+	
+	public void load (String filename)
+	{
+		try
+		{
+			FileInputStream fin = new FileInputStream(filename);
+			ObjectInputStream oin = new ObjectInputStream(fin);
+			
+			Object oread = oin.readObject();
+			archivio = (Vector<Auto>)oread;
+		}
+		catch (Exception e)
+		{
+			System.err.println("Errore durante il caricamento dal file");
+			e.printStackTrace();
+		}
 	}
 	
 }

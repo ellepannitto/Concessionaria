@@ -28,7 +28,12 @@ public class AutoUsata extends Auto
 	
 	public String toString ()
 	{
-		return this.targa + this.modello;
+		String auto = super.toString();
+		
+		String autousata = String.format("Anno di immatricolazione: %d\tChilometri: %d\n", this.anno_di_immatricolazione, this.chilometri_percorsi);
+		String p = String.format("Prezzo: %.2f", this.prezzo_di_vendita);
+		
+		return auto+autousata+p;
 	}
 	
 	/**

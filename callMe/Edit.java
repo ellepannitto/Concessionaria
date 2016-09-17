@@ -16,9 +16,9 @@ public class Edit implements CallMe
 	
 	public void call()
 	{
-		String t = Menu.get_targa();
+		String t = Menu.get_string("targa");
 		
-		Date d = Menu.get_data();
+		GregorianCalendar d = Menu.get_data("data");
 
 		Auto a = new Auto(t, null, 0, null, 0);
 

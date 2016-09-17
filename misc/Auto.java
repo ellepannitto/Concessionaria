@@ -1,6 +1,7 @@
 package misc;
 
 import java.util.*;
+import java.io.*;
 
 /**
  * 
@@ -8,7 +9,7 @@ import java.util.*;
  * 
  * 
  * */
-public class Auto 
+public class Auto implements Serializable
 {
 	protected String targa;
 	protected String modello;
@@ -57,6 +58,14 @@ public class Auto
 	public int hashCode ()
 	{
 		return this.targa.hashCode();
+	}
+	
+	public String toString()
+	{
+		String rigauno = String.format("Cat: Nuova\tTarga: %s\n", this.targa);
+		String rigadue = String.format("Desc: %s %s, %d cc\n", this.modello, this.colore, this.cilindrata);
+		
+		return rigauno+rigadue;
 	}
 	
 }

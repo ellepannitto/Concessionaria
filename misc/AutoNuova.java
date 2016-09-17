@@ -1,10 +1,11 @@
 package misc;
 
 import java.util.*;
+import java.text.SimpleDateFormat;
 
 public class AutoNuova extends Auto 
 {
-	protected Date data_di_consegna;
+	protected GregorianCalendar data_di_consegna;
 	protected Cliente cliente;
 	
 	/**
@@ -18,7 +19,7 @@ public class AutoNuova extends Auto
 	 * @param data di consegna prevista
 	 * @param cliente
 	 * */
-	public AutoNuova (String targa, String modello, int cilindrata, String colore, float prezzo, Date data, Cliente cliente)
+	public AutoNuova (String targa, String modello, int cilindrata, String colore, float prezzo, GregorianCalendar data, Cliente cliente)
 	{
 		super (targa, modello, cilindrata, colore, prezzo);
 		
@@ -28,7 +29,13 @@ public class AutoNuova extends Auto
 	
 	public String toString ()
 	{
-		return this.targa + this.modello;
+		String auto = super.toString();
+		
+		String date = new SimpleDateFormat("dd/MM/yyyy").format(this.data_di_consegna.getTime());
+		String autonuova = String.format("Cliente: %s\tData di consegna: %s\n", this.cliente.toString(), date);
+		String p = String.format("Prezzo: %.2f", this.prezzo_di_vendita);
+		
+		return auto+autonuova+p;
 	}
 	
 	/**
@@ -36,7 +43,7 @@ public class AutoNuova extends Auto
 	 * 
 	 * @param nuova data da impostare
 	 * */
-	public void setNewDate (Date nuova_data)
+	public void setNewGregorianCalendar (GregorianCalendar nuova_data)
 	{
 		this.data_di_consegna = nuova_data;
 	}
@@ -52,7 +59,7 @@ public class AutoNuova extends Auto
 	/**
 	 * @return data di consegna dell'Auto
 	 * */
-	public Date getDeliveryDate()
+	public GregorianCalendar getDeliveryDate()
 	{
 		return this.data_di_consegna;
 	}

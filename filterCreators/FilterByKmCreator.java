@@ -7,29 +7,30 @@ import callMe.*;
 import misc.*;
 import menu.*;
 
-public class FilterByCostumerCreator implements CallMe
+public class FilterByKmCreator implements CallMe
 {
 	private List<Filterer<Auto>> l;
 	
-	public FilterByCostumerCreator (List<Filterer<Auto>> l)
+	public FilterByKmCreator (List<Filterer<Auto>> l)
 	{
 		this.l = l;
 	}
 	
 	public void call()
 	{
-		String s = Menu.get_pattern("Inserisci pattern da ricercare");
+		int min = Menu.get_int("Inserisci minimo");
+		int max = Menu.get_int("inserisci massimo");
 		
 		//~ check_string(s);
 		
-		FilterByCustomer f = new FilterByCustomer(s);
+		FilterByKm f = new FilterByKm(min, max);
 		
 		l.add(f);
 	}
 	
 	public String getDescrizione()
 	{
-		return "Filtra per Cliente";
+		return "Filtra per Chilometri Percorsi";
 	}
 	
 }

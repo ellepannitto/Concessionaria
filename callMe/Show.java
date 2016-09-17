@@ -24,9 +24,25 @@ public class Show implements CallMe
 		List<Filterer<Auto>> filters = new ArrayList<Filterer<Auto>>();
 		
 		filters_to_show.add(new FilterByCostumerCreator(filters));
+		filters_to_show.add(new FilterByKmCreator(filters));
+		filters_to_show.add(new FilterByMatriculationYearCreator(filters));
+		filters_to_show.add(new FilterByTypeCreator(filters));
+		Exit e = new Exit(filters);
+		filters_to_show.add(e);
 		
-		Menu.show_menu(filters_to_show);
-		Menu.show_menu(orderings_to_show);
+		while (!e.got_called())
+			Menu.show_menu(filters_to_show);
+		
+		MultipleFiltererAuto filtro = new MultipleFiltererAuto(filters);
+		
+		
+		Auto[] lista = c.filter_autos(filtro);
+		
+		for (Auto a: lista)
+		{
+			System.out.println(a);
+		}
+		
 	}
 	
 	public String getDescrizione ()

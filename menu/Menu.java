@@ -1,6 +1,7 @@
 package menu;
 
 import java.util.*;
+import java.text.DecimalFormatSymbols;
 
 import misc.*;
 import callMe.*;
@@ -10,25 +11,10 @@ public class Menu
 {
 	private static Scanner s = new Scanner(System.in);
 	
-	public Menu()
+	private static void clear_input_buffer ()
 	{
-		Concessionaria c = new Concessionaria();
-		
-		List<CallMe> menu_principale = new ArrayList<CallMe>();
-		
-		menu_principale.add(new Add(c));
-		menu_principale.add(new Remove(c));
-		menu_principale.add(new Edit(c));
-		//~ menu_principale.add("Visualizza");
-		//~ menu_principale.add("Modifica");
-		//~ menu_principale.add("Carica");
-		//~ menu_principale.add("Salva");
-		
-		while (true)
-		
-			show_menu(menu_principale);
-		
-		
+		if ( s.hasNextLine () )
+			s.nextLine ();
 	}
 	
 	public static void show_menu(List<CallMe> options)
@@ -57,26 +43,80 @@ public class Menu
 		
 	}
 	
-	public static void main (String[] args)
-	{
-		Menu m = new Menu();
-	}
 	
 	public static Auto get_auto ()
 	{
-		Auto a = new Auto("","",0,"",0);
-		return a;
+		Auto ret;
+		
+		int x = get_int("1 per nuova, 0 per usata");
+		
+		String targa = get_string("inserisci targa");
+		String modello = get_string("inserisci modello");
+		String colore = get_string("inserisci colore");
+		
+		int cilindrata = get_int("inserisci cilindrata");
+		float prezzo = get_float("inserisci prezzo");
+		
+		
+		
+		if (x==0)
+		{
+			int anno = get_int("inserisci anno di immatricolazione");
+			int chilometri = get_int("inserisci chilometri percorsi");
+			
+			ret = new AutoUsata(targa, modello, cilindrata, colore, prezzo, anno, chilometri);
+			
+		}
+		else
+		{
+			Cliente c = get_cliente();
+			GregorianCalendar data_di_consegna = get_data("Inserisci la data nel formato ggmmaaaa");
+			
+			ret = new AutoNuova(targa, modello, cilindrata, colore, prezzo, data_di_consegna, c);
+		}
+		
+		return ret;
 	}
 	
-	public static String get_targa()
+	public static String get_string(String message)
 	{
-		return "AA000AA";
+		System.out.println(message);
+		
+		String ret = s.next();
+		clear_input_buffer ();
+		
+		return ret;
 	}
 	
-	public static Date get_data()
+	public static GregorianCalendar get_data(String message)
 	{
-		Date d = new Date();
+		GregorianCalendar d = new GregorianCalendar();
+		
+		try
+		{
+			int giorno = get_int("Inserisci giorno");
+			int mese = get_int("Inserisci mese") - 1;
+			int anno = get_int("Inserisci anno");
+			
+			d = new GregorianCalendar(anno, mese, giorno);
+			
+		}
+		catch (Exception e)
+		{
+			;
+		}
 		return d;
+	}
+
+	public static Cliente get_cliente()
+	{
+		String nome = get_string("inserisci nome cliente");
+		String cognome = get_string("inserisci cognome cliente");
+		String cf = get_string("inserisci codice fiscale cliente");
+
+		Cliente c = new Cliente(nome, cognome, cf);
+
+		return c;
 	}
 	
 	public static void show_error (String error)
@@ -84,9 +124,56 @@ public class Menu
 		System.out.println(error);
 	}
 	
-	public static String get_pattern()
+	public static String get_pattern(String message)
 	{
-		return "bbb";
+		System.out.println(message);
+		
+		String ret = s.next();
+		clear_input_buffer ();
+		
+		return ret;
 	}
+
+	public static int get_int(String message)
+	{
+		System.out.println(message);
+		
+		int x = 0;
+		
+		try
+		{
+			x = s.nextInt();
+		}
+		catch(Exception e)
+		{
+			;
+		}
+		
+		clear_input_buffer ();
+		return x;
+	}
+
+	public static float get_float(String message)
+	{
+		DecimalFormatSymbols dfs = new DecimalFormatSymbols ();
+		System.out.println(message);
+		
+		System.out.println("Separatore dei decimali: "+dfs.getDecimalSeparator());
+		float x = 0;
+		
+		try
+		{
+			x = s.nextFloat();
+		}
+		catch(Exception e)
+		{
+			;
+		}
+		
+		clear_input_buffer ();
+		return x;
+	}
+	
+
 	
 }

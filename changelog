@@ -1,3 +1,10 @@
+Concessionaria ver 0.4
+  
+  * Auto string formatting
+  * Load/Save archive to/from file
+
+-- Ludovica Pannitto <ellepannitto@gmail.com> Sat, 17 Sep 2016 22:46 +0200
+
 Concessionaria ver 0.3
   
   * Code devided into packages
