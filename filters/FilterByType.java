@@ -1,3 +1,7 @@
+package filters;
+
+import misc.*;
+
 /**
  * 
  * 

@@ -1,3 +1,9 @@
+Concessionaria ver 0.3
+  
+  * Code devided into packages
+
+-- Ludovica Pannitto <ellepannitto@gmail.com> Sat, 17 Sep 2016 16:14 +0200
+
 Concessionaria ver 0.2.1
   
   * FilterByCostumerSurname is now FilterByCostumer

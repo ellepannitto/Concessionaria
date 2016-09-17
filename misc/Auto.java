@@ -1,5 +1,13 @@
+package misc;
+
 import java.util.*;
 
+/**
+ * 
+ * 
+ * 
+ * 
+ * */
 public class Auto 
 {
 	protected String targa;
@@ -8,6 +16,15 @@ public class Auto
 	protected String colore;
 	protected float prezzo_di_vendita;
 	
+	/**
+	 * Inizializza un nuovo oggetto di classe AutoUsata
+	 * 
+	 * @param targa dell'Auto
+	 * @param modello dell'Auto
+	 * @param cilindrata dell'Auto
+	 * @param colore dell'Auto
+	 * @param prezzo dell'Auto
+	 * */
 	public Auto (String targa, String modello, int cilindrata, String colore, float prezzo)
 	{
 		this.targa = targa;
@@ -17,17 +34,26 @@ public class Auto
 		this.prezzo_di_vendita = prezzo;
 	}
 	
-	
+	/**
+	 * @return la targa dell'Auto
+	 * */
 	public String getTarga()
 	{
 		return this.targa;
 	}
 	
+	/**
+	 * @param oggetto da confrontare
+	 * @return true se le targhe del parametro e dell'auto coincidono
+	 * */
 	public boolean equals (Object a)
 	{
 		return ((Auto)a).targa == this.targa ; 
 	}
 	
+	/**
+	 * @return hashCode della targa dell'Auto
+	 * */
 	public int hashCode ()
 	{
 		return this.targa.hashCode();

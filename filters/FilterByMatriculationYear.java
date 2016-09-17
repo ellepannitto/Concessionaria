@@ -1,3 +1,7 @@
+package filters;
+
+import misc.*;
+
 public class FilterByMatriculationYear implements Filterer<Auto>
 {
 	private int min_year;

@@ -1,11 +1,9 @@
 JAVA_FILES := $(wildcard *.java)
 
-%.class: %.java
-	javac $<
+default: all
 
-default: concessionaria
-
-concessionaria: $(JAVA_FILES:.java=.class)
+all:
+	javac callMe/*.java filterCreators/*.java misc/*.java compare/*.java filters/*.java menu/*.java
 	
 clean:
 	$(RM) *.class

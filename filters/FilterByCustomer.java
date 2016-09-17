@@ -1,7 +1,15 @@
+package filters;
+
 import java.util.*;
 import java.util.regex.*;
 import java.lang.*;
 
+import misc.*;
+
+/**
+ * Filtra le Auto in base ai dati anagrafici del Cliente.
+ * 
+ * */ 
 public class FilterByCustomer implements Filterer<Auto>
 {
 	private Pattern p_surname;
@@ -10,13 +18,23 @@ public class FilterByCustomer implements Filterer<Auto>
 	private Pattern p_name;
 	private String s_name;
 	
-	
+	/**
+	 * Inizializza un nuovo Filterer
+	 * 
+	 * @param pattern da cercare (cognome)
+	 * */
 	public FilterByCustomer (String pattern) 
 	{
 		this.p_surname = Pattern.compile(pattern);
 		this.s_surname = pattern;
 	}
-
+	
+	/**
+	 * Inizializza un nuovo Filterer
+	 * 
+	 * @param primo pattern da cercare (cognome)
+	 * @param secondo pattern da cercare (nome)
+	 * */
 	public FilterByCustomer (String surname, String name) 
 	{
 		this.p_surname = Pattern.compile(surname);
@@ -26,6 +44,9 @@ public class FilterByCustomer implements Filterer<Auto>
 		this.s_name = name;
 	}
 	
+	/**
+	 * @return true se l'Auto rispetta le condizioni del filtro, ovvero se il cognome (e il nome) del Cliente contiene (contengono) o matcha (matchano) la sottostringa settata dal costruttore.
+	 * */
 	public boolean filter (Auto a)
 	{
 		boolean ret = false;
@@ -55,9 +76,7 @@ public class FilterByCustomer implements Filterer<Auto>
 				ret = ret && (ret_regex || ret_substr);
 			}
 		}
-		
 		return ret;
-		
 	}
 	
 }

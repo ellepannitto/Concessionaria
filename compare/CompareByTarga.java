@@ -1,4 +1,8 @@
+package compare;
+
 import java.util.*;
+
+import misc.*;
 
 public class CompareByTarga implements Comparator<Auto>
 {
