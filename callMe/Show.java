@@ -27,7 +27,7 @@ public class Show implements CallMe
 		filters_to_show.add(new FilterByKmCreator(filters));
 		filters_to_show.add(new FilterByMatriculationYearCreator(filters));
 		filters_to_show.add(new FilterByTypeCreator(filters));
-		Exit e = new Exit(filters);
+		filterCreators.Exit e = new filterCreators.Exit(filters);
 		filters_to_show.add(e);
 		
 		while (!e.got_called())
