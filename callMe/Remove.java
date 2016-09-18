@@ -2,6 +2,7 @@ package callMe;
 
 import misc.*;
 import menu.*;
+import exceptions.*;
 
 /**
  * 
@@ -26,10 +27,15 @@ public class Remove implements CallMe
 		String targa = Menu.get_string ("Inserisci la targa dell'auto da rimuovere");
 		Auto a = new Auto ( targa, null, 0, null, 0 );
 
-		boolean success = c.remove_auto(a);
-		
-		if (!success)
-			Menu.show_error("Auto non presente");
+		try
+		{
+			c.remove_auto(a);
+		}
+		catch (AutoException e)
+		{
+			System.err.println ("Impossibile rimuovere auto dall'archivio - "+e);
+		}
+
 	}
 	
 	/**

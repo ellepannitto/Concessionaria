@@ -18,8 +18,8 @@ public class FilterByKmCreator implements CallMe
 	
 	public void call()
 	{
-		int min = Menu.get_int("Inserisci minimo");
-		int max = Menu.get_int("inserisci massimo");
+		int min = Menu.get_int("Inserisci minimo (-1 se non richiesto)");
+		int max = Menu.get_int("inserisci massimo (-1 se non richiesto)");
 		
 		//~ check_string(s);
 		

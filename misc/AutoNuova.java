@@ -43,7 +43,7 @@ public class AutoNuova extends Auto
 	 * 
 	 * @param nuova data da impostare
 	 * */
-	public void setNewGregorianCalendar (GregorianCalendar nuova_data)
+	public void setNewDate (GregorianCalendar nuova_data)
 	{
 		this.data_di_consegna = nuova_data;
 	}

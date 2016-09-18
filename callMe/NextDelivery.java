@@ -4,6 +4,7 @@ import java.util.*;
 
 import misc.*;
 import menu.*;
+import exceptions.*;
 
 public class NextDelivery implements CallMe
 {
@@ -16,9 +17,17 @@ public class NextDelivery implements CallMe
 	
 	public void call()
 	{
-		Auto a = c.getNextDelivery();
-
-		System.out.println(a);
+		
+		try
+		{
+			Auto a = c.getNextDelivery();
+			System.out.println(a);
+		}
+		catch (AutoException e)
+		{
+			System.err.println("Impossibile mostrare la prossima consegna - "+e);
+		}
+			
 	}
 	
 	public String getDescrizione ()

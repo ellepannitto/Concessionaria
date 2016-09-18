@@ -17,32 +17,46 @@ public class Menu
 			s.nextLine ();
 	}
 	
+	public static void flush_console()
+	{
+		//Per pulire la console su Linux
+		System.out.println("\033[H\033[2J");
+		System.out.flush();
+	}
+	
 	public static void show_menu(List<CallMe> options, String intestazione)
 	{
-		System.out.println (intestazione);
+		boolean corretto = false;
 		
-		for (int i=0; i<options.size(); i++)
+		//~ flush_console();
+		
+		while (!corretto)
 		{
-			System.out.println ("["+(i+1)+"] "+options.get(i).getDescrizione());
-		}
-		
-		System.out.println ("Inserisci la tua scelta:");
-		String scelta = s.nextLine();
-		
-		try
-		{
-			int n = Integer.parseInt(scelta);
+			System.out.println (intestazione);
 			
-			CallMe selected = options.get(n-1);
+			for (int i=0; i<options.size(); i++)
+			{
+				System.out.println ("["+(i+1)+"] "+options.get(i).getDescrizione());
+			}
 			
-			selected.call();
+			System.out.println ("Inserisci la tua scelta:");
+			String scelta = s.nextLine();
+			
+			try
+			{
+				int n = Integer.parseInt(scelta);
 				
+				CallMe selected = options.get(n-1);
+				
+				selected.call();
+				
+				corretto = true;	
+			}
+			catch(Exception e)
+			{
+				System.err.println("Scelta non valida");
+			}
 		}
-		catch(Exception e)
-		{
-			;
-		}
-		
 	}
 	
 	
@@ -50,9 +64,18 @@ public class Menu
 	{
 		Auto ret;
 		
-		int x = get_int("1 per nuova, 0 per usata");
+		int x = get_int("Digita 1 per inserire un'auto nuova, 0 per una usata");
 		
-		String targa = get_string("inserisci targa");
+		
+		String targa = get_string("Inserisci targa");
+		
+		while (!Concessionaria.check_targa(targa))
+		{
+			targa = get_string("Formato targa non valido, inserisci di nuovo");
+		}
+		
+		
+		
 		String modello = get_string("inserisci modello");
 		String colore = get_string("inserisci colore");
 		
@@ -72,7 +95,11 @@ public class Menu
 		else
 		{
 			Cliente c = get_cliente();
-			GregorianCalendar data_di_consegna = get_data("Inserisci la data nel formato ggmmaaaa");
+			
+			GregorianCalendar data_di_consegna = get_data("Inserisci la data di consegna");
+			
+			while ( !Concessionaria.check_future_date (data_di_consegna) )
+				data_di_consegna = get_data ("Data non valida, inserisci nuova data");
 			
 			ret = new AutoNuova(targa, modello, cilindrata, colore, prezzo, data_di_consegna, c);
 		}
@@ -92,21 +119,31 @@ public class Menu
 	
 	public static GregorianCalendar get_data(String message)
 	{
-		GregorianCalendar d = new GregorianCalendar();
+		System.out.println(message);
 		
-		try
+		GregorianCalendar d = new GregorianCalendar();
+		d.setLenient(false);
+
+		boolean corretto = false;
+
+		while (!corretto)
 		{
-			int giorno = get_int("Inserisci giorno");
-			int mese = get_int("Inserisci mese") - 1;
-			int anno = get_int("Inserisci anno");
-			
-			d = new GregorianCalendar(anno, mese, giorno);
-			
+			try
+			{
+				int giorno = get_int("Inserisci giorno");
+				int mese = get_int("Inserisci mese") - 1;
+				int anno = get_int("Inserisci anno");
+				
+				d.set(anno, mese, giorno, 0, 0, 0);
+				d.getTime ();
+				corretto = true;
+			}
+			catch (Exception e)
+			{
+				System.err.println("Formato data non valido");
+			}
 		}
-		catch (Exception e)
-		{
-			;
-		}
+
 		return d;
 	}
 
@@ -138,41 +175,51 @@ public class Menu
 
 	public static int get_int(String message)
 	{
-		System.out.println(message);
-		
+		boolean corretto = false;
 		int x = 0;
 		
-		try
+		System.out.println(message);
+		
+		while (!corretto)
 		{
-			x = s.nextInt();
-		}
-		catch(Exception e)
-		{
-			;
+			try
+			{
+				x = s.nextInt();
+				
+				corretto = true;
+			}
+			catch(Exception e)
+			{
+				System.out.println ("Il valore inserito non è numerico, inserisci nuovo valore");
+			}
+			clear_input_buffer ();
 		}
 		
-		clear_input_buffer ();
 		return x;
 	}
 
 	public static float get_float(String message)
 	{
 		DecimalFormatSymbols dfs = new DecimalFormatSymbols ();
-		System.out.println(message);
+		System.out.println(message + " ( Separatore dei decimali: "+dfs.getDecimalSeparator()+" )");
 		
-		System.out.println("Separatore dei decimali: "+dfs.getDecimalSeparator());
+		boolean corretto = false;
 		float x = 0;
 		
-		try
+		while (!corretto)
 		{
-			x = s.nextFloat();
-		}
-		catch(Exception e)
-		{
-			;
+			try
+			{
+				x = s.nextFloat();
+				corretto = true;
+			}
+			catch(Exception e)
+			{
+				System.out.println ("Il valore inserito non è corretto, inserisci di nuovo.");
+			}
+			clear_input_buffer ();
 		}
 		
-		clear_input_buffer ();
 		return x;
 	}
 	

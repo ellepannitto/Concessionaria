@@ -1,3 +1,11 @@
+Concessionaria ver 0.5
+  
+  * Exceptions added
+  * Orderings and filters added
+  * Default choice for filterbykm and filterbymatriculationyear now possible
+
+-- Ludovica Pannitto <ellepannitto@gmail.com> Sun, 18 Sep 2016 17:54 +0200
+
 Concessionaria ver 0.4.2
   
   * Ordering submenu added

@@ -1,12 +1,12 @@
 package callMe;
 
 import java.util.*;
+import java.io.*;
 
 import misc.*;
 import menu.*;
 import filters.*;
 import filterCreators.*;
-
 
 /**
  * 
@@ -30,7 +30,16 @@ public class Load implements CallMe
 	{
 		String filename = Menu.get_string ("Inserisci nome del file");
 		
-		c.load(filename);
+		try
+		{
+			c.load(filename);
+		}
+		catch (IOException e)
+		{
+			System.err.println ("Impossibile caricare la concessionaria - "+e);
+		}
+		
+		
 	}
 	
 	/**

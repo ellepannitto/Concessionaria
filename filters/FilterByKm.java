@@ -36,9 +36,16 @@ public class FilterByKm implements Filterer<Auto>
 		
 		if (a instanceof AutoUsata)
 		{
+			ret = true;
+			
 			int km = ((AutoUsata)a).getKilometers();
 			
-			ret = km >= this.min_km && km <= this.max_km;
+			if (this.min_km > 0)
+				ret = km >= this.min_km;
+				
+			if (this.max_km > 0)
+				ret = ret && km <= this.max_km;
+			
 		}
 		return ret;
 	}

@@ -8,7 +8,7 @@ public class FilterByMatriculationYear implements Filterer<Auto>
 	private int max_year;
 	
 	public FilterByMatriculationYear (int min, int max) 
-	{
+	{	
 		this.min_year = min;
 		this.max_year = max;
 		
@@ -20,9 +20,17 @@ public class FilterByMatriculationYear implements Filterer<Auto>
 		
 		if (a instanceof AutoUsata)
 		{
+			ret = true;
+			
 			int y = ((AutoUsata)a).getMatriculationYear();
 			
-			ret = y >= this.min_year && y <= this.max_year;
+			if (this.min_year > 0)
+				ret = y >= this.min_year;
+
+			if (this.max_year > 0)
+				ret = ret && y <= this.max_year;
+			
+			
 		}
 		
 		return ret;

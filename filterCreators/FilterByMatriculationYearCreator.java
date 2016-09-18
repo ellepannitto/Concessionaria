@@ -18,10 +18,8 @@ public class FilterByMatriculationYearCreator implements CallMe
 	
 	public void call()
 	{
-		int min = Menu.get_int("Inserisci minimo");
-		int max = Menu.get_int("Inserisci massimo");
-		
-		//~ check_string(s);
+		int min = Menu.get_int("Inserisci minimo (-1 se non richiesto) ");
+		int max = Menu.get_int("Inserisci massimo (-1 se non richiesto) ");
 		
 		FilterByMatriculationYear f = new FilterByMatriculationYear(min, max);
 		

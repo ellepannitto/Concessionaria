@@ -44,6 +44,28 @@ public class Auto implements Serializable
 	}
 	
 	/**
+	 * @return il prezzo dell'Auto
+	 * */
+	public float getPrezzo()
+	{
+		return this.prezzo_di_vendita;
+	}
+	/**
+	 * @return la cilindrata dell'Auto
+	 * */
+	public int getCilindrata()
+	{
+		return this.cilindrata;
+	}
+	/**
+	 * @return il modello dell'Auto
+	 * */
+	public String getModello()
+	{
+		return this.modello;
+	}
+	
+	/**
 	 * @param oggetto da confrontare
 	 * @return true se le targhe del parametro e dell'auto coincidono
 	 * */

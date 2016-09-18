@@ -4,6 +4,7 @@ import java.util.*;
 
 import misc.*;
 import menu.*;
+import exceptions.*;
 
 public class Edit implements CallMe
 {
@@ -22,10 +23,14 @@ public class Edit implements CallMe
 
 		Auto a = new Auto(t, null, 0, null, 0);
 
-		boolean success = c.setNewDeliveryDate(a, d);
-		
-		if (!success)
-			Menu.show_error("Impossibile settare nuova data");
+		try
+		{
+			c.setNewDeliveryDate(a, d);
+		}
+		catch (AutoException | DateException e)
+		{
+			System.err.println ("Impossibile settare nuova data - "+e);
+		}
 	}
 	
 	public String getDescrizione ()

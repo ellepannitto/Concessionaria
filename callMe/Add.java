@@ -2,6 +2,7 @@ package callMe;
 
 import misc.*;
 import menu.*;
+import exceptions.*;
 
 public class Add implements CallMe
 {
@@ -16,10 +17,15 @@ public class Add implements CallMe
 	{
 		Auto a = Menu.get_auto();
 
-		boolean success = c.add_auto(a);
+		try
+		{
+			c.add_auto(a);
+		}
+		catch (AutoException e)
+		{
+			System.err.println("Impossibile aggiungere auto - "+e);
+		}
 		
-		if (!success)
-			Menu.show_error("Auto già presente");
 	}
 	
 	public String getDescrizione ()

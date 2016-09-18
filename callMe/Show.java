@@ -27,6 +27,7 @@ public class Show implements CallMe
 		filters_to_show.add(new FilterByKmCreator(filters));
 		filters_to_show.add(new FilterByMatriculationYearCreator(filters));
 		filters_to_show.add(new FilterByTypeCreator(filters));
+		filters_to_show.add(new FilterByTargaCreator(filters));
 		filterCreators.Exit e = new filterCreators.Exit(filters);
 		filters_to_show.add(e);
 		
@@ -38,16 +39,17 @@ public class Show implements CallMe
 		
 		SortingSelector ss = new SortingSelector ();
 		ss.add ( new CompareByTargaCreator (ss) );
-		ss.add ( new CompareByTargaCreator (ss) );
-		ss.add ( new CompareByTargaCreator (ss) );
+		ss.add ( new CompareByCilindrataCreator (ss) );
+		ss.add ( new CompareByModelloCreator (ss) );
+		ss.add ( new CompareByPrezzoCreator (ss) );
 		
 		
 		List<CallMe> orderings_to_show = ss.get_list();
 		Menu.show_menu ( orderings_to_show , "Scegli il tipo di ordinamento" );
 		
-		Comparator<Auto> funzione_scelta = ss.get_ordering();
+		Comparator<Auto> funzione_ordinamento_scelta = ss.get_ordering();
 		
-		Auto[] lista = c.filter_and_list_autos(filtro, funzione_scelta);
+		Auto[] lista = c.filter_autos(filtro, funzione_ordinamento_scelta);
 		
 		for (Auto a: lista)
 		{

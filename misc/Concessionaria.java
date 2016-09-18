@@ -2,8 +2,11 @@ package misc;
 
 import java.util.*;
 import java.io.*;
+import java.util.regex.*;
+import java.lang.*;
 
 import filters.*;
+import exceptions.*;
 
 /**
  * 
@@ -26,27 +29,39 @@ public class Concessionaria
 
 	public Concessionaria (String filename)
 	{
-		load(filename);
+		try
+		{
+			load(filename);
+		}
+		catch (IOException e)
+		{
+			System.err.println("Impossibile caricare l'archivio - "+e);
+			System.out.println("E' stata creata una nuova concessionaria");
+			
+		}
+		
 	}
 
-	public boolean add_auto (Auto auto)
+	public void add_auto (Auto auto) throws AutoException
 	{
 		boolean non_presente = !archivio.contains(auto);
 		
 		if (non_presente)
 			archivio.add(auto);
+		else
+			throw new AutoException ("Auto già presente nell'archivio");
 			
-		return non_presente;
 	}
 	
-	public boolean remove_auto (Auto auto)
+	public void remove_auto (Auto auto) throws AutoException
 	{
 		boolean presente = archivio.contains(auto);
 		
 		if (presente)
 			archivio.remove (auto);
+		else
+			throw new AutoException ("Auto non presente nell'archivio");
 			
-		return presente;
 	}
 	
 	public Auto[] list_autos (Comparator<Auto> o)
@@ -62,7 +77,6 @@ public class Concessionaria
 	{
 		Vector<Auto> return_list = new Vector<Auto>();
 		
-		
 		for (Auto a: archivio)
 		{
 			if ( o.filter(a) )
@@ -72,7 +86,7 @@ public class Concessionaria
 		return return_list.toArray( new Auto[return_list.size()] );
 	}
 	
-	public Auto[] filter_and_list_autos (Filterer<Auto> f, Comparator<Auto> c)
+	public Auto[] filter_autos (Filterer<Auto> f, Comparator<Auto> c)
 	{
 		Vector<Auto> filtered_list = new Vector<Auto>();
 		
@@ -91,8 +105,32 @@ public class Concessionaria
 		
 	}
 	
-	public boolean setNewDeliveryDate (Auto a, GregorianCalendar data)
+	public static boolean check_future_date (GregorianCalendar data)
 	{
+		GregorianCalendar now = new GregorianCalendar();
+		
+		long diff = data.getTime().getTime() - now.getTime().getTime();
+
+		return diff > 0;	
+	}
+	
+	public static boolean check_targa (String targa)
+	{
+		Pattern t = Pattern.compile ("[A-z]{2}[0-9]{3}[A-z]{2}");
+		
+		Matcher m = t.matcher(targa);
+		
+		return m.matches();
+		
+		
+	}
+	
+	public void setNewDeliveryDate (Auto a, GregorianCalendar data) throws AutoException, DateException
+	{
+		
+		if ( !check_future_date(data) )
+			throw new DateException ("La data inserita è antecedente alla data odierna");
+		
 		int presente = archivio.indexOf(a);
 		
 		Auto old = null;
@@ -103,15 +141,24 @@ public class Concessionaria
 			
 			if (old instanceof AutoNuova)
 			{
-				((AutoNuova)old).setNewGregorianCalendar(data);
+				((AutoNuova)old).setNewDate(data);
+			}
+			else
+			{
+				throw new AutoException ("L'Auto è di tipo Usata");
 			}
 		}
-			
-		return presente > -1 && old instanceof AutoNuova;
+		else
+		{
+			throw new AutoException ("Auto non presente nell'archivio");
+		}
 	}
 	
-	public Auto getNextDelivery()
+	public Auto getNextDelivery() throws AutoException
 	{
+		if (archivio.size() == 0) 
+			throw new AutoException ("Nessuna auto presente nell'archivio");
+		
 		GregorianCalendar now = new GregorianCalendar();
 		
 		long min = -1;
@@ -125,27 +172,32 @@ public class Concessionaria
 				
 				long diff = consegna.getTime().getTime() - now.getTime().getTime();
 				
-				if (min < 0)
+				if (diff >= 0)
 				{
-					min = diff;
-					next = archivio.get( archivio.indexOf(a) );
-				}
-				else
-				{
-					if (diff < min)
+					if (min < 0)
 					{
 						min = diff;
 						next = archivio.get( archivio.indexOf(a) );
 					}
+					else
+					{
+						if (diff < min)
+						{
+							min = diff;
+							next = archivio.get( archivio.indexOf(a) );
+						}
+					}
 				}
-				
 			}
 		}
+		
+		if (min < 0)
+			throw new AutoException ("Non ci sono prossime consegne");
 		
 		return next;
 	}
 	
-	public void dump (String filename)
+	public void dump (String filename) throws IOException
 	{
 		try
 		{
@@ -156,11 +208,11 @@ public class Concessionaria
 		}
 		catch (Exception e)
 		{
-			;
+			throw new IOException("Errore durante il salvataggio sul file "+filename);
 		}
 	}
 	
-	public void load (String filename)
+	public void load (String filename) throws IOException
 	{
 		try
 		{
@@ -172,8 +224,7 @@ public class Concessionaria
 		}
 		catch (Exception e)
 		{
-			System.err.println("Errore durante il caricamento dal file");
-			e.printStackTrace();
+			throw new IOException("Errore durante il caricamento dal file "+filename);
 		}
 	}
 	

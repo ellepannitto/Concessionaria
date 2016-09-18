@@ -1,6 +1,7 @@
 package callMe;
 
 import java.util.*;
+import java.io.*;
 
 import misc.*;
 import menu.*;
@@ -20,7 +21,16 @@ public class Save implements CallMe
 	{
 		String filename = Menu.get_string ("Inserisci nome del file");
 		
-		c.dump(filename);
+		
+		try
+		{
+			c.dump(filename);
+		}
+		catch (IOException e)
+		{
+			System.err.println("Impossibile salvare l'archivio su file - "+e);
+		}
+		
 	}
 	
 	public String getDescrizione ()
