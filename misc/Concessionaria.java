@@ -72,6 +72,25 @@ public class Concessionaria
 		return return_list.toArray( new Auto[return_list.size()] );
 	}
 	
+	public Auto[] filter_and_list_autos (Filterer<Auto> f, Comparator<Auto> c)
+	{
+		Vector<Auto> filtered_list = new Vector<Auto>();
+		
+		
+		for (Auto a: archivio)
+		{
+			if ( f.filter(a) )
+				filtered_list.add( a );
+		}
+		
+		Auto[] sorted_list = filtered_list.toArray( new Auto[filtered_list.size()] );
+		
+		Arrays.sort(sorted_list, c);
+		
+		return sorted_list;
+		
+	}
+	
 	public boolean setNewDeliveryDate (Auto a, GregorianCalendar data)
 	{
 		int presente = archivio.indexOf(a);

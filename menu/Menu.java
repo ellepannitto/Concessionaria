@@ -17,8 +17,10 @@ public class Menu
 			s.nextLine ();
 	}
 	
-	public static void show_menu(List<CallMe> options)
+	public static void show_menu(List<CallMe> options, String intestazione)
 	{
+		System.out.println (intestazione);
+		
 		for (int i=0; i<options.size(); i++)
 		{
 			System.out.println ("["+(i+1)+"] "+options.get(i).getDescrizione());
