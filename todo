@@ -1,0 +1,7 @@
+TODO
+ * flush console per il menu
+ * rinominare callMe in menuItem e call() in selected()
+ * controllare targa al momento dell'inserimento di una nuova auto
+ * aggiungere nessun ordinamento alla lista
+ * finire commenti
+ * errori di javadoc (aggiungere nomi parametri)

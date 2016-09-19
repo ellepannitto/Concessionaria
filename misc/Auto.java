@@ -79,7 +79,7 @@ public class Auto implements Serializable
 	 * */
 	public boolean equals (Object a)
 	{
-		return ((Auto)a).targa == this.targa ; 
+		return ((Auto)a).targa.equals(this.targa) ; 
 	}
 	
 	/**

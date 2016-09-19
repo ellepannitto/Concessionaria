@@ -1,9 +1,14 @@
+Concessionaria ver 0.6.3
+  
+  * minor bug (comparing strings) fixed
+
+-- Ludovica Pannitto <ellepannitto@gmail.com> Mon, 19 Sep 2016 22:23 +0200
+
 Concessionaria ver 0.6.2
   
   * added documentation for FilterCreator
 
 -- Ludovica Pannitto <ellepannitto@gmail.com> Mon, 19 Sep 2016 22:02 +0200
-
 
 Concessionaria ver 0.6.1
   
