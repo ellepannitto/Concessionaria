@@ -30,6 +30,11 @@ public class FilterByTypeCreator implements CallMe
 		this.l = l;
 	}
 	
+	/**
+	 * 
+	 * crea un filtro per le auto in base al tipo, e lo aggiunge ad una lista di filtri
+	 * 
+	 * */
 	public void call()
 	{
 		int new_wanted = Menu.get_int("Inserisci 0 per auto usate e 1(o maggiore) per auto nuove");
@@ -41,6 +46,11 @@ public class FilterByTypeCreator implements CallMe
 		l.add(f);
 	}
 	
+	/**
+	 * 
+	 * restituisce una descrizione per la voce nel menù
+	 * 
+	 * */
 	public String getDescrizione()
 	{
 		return "Filtra per Tipo";

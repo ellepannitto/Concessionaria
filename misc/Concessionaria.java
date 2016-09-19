@@ -225,6 +225,64 @@ public class Concessionaria
 		}
 	}
 	
+	/**
+	 * Modifica il colore di un'auto.
+	 * 
+	 * @param auto da modificare
+	 * @param nuovo colore
+	 * 
+	 * @throws AutoException se l'auto non è presente nell'archivio.
+	 * 
+	 * */
+	public void setNewColor (Auto a, String col) throws AutoException
+	{
+		
+		int presente = archivio.indexOf(a);
+		
+		Auto old = null;
+		
+		if (presente > -1)
+		{
+			old = archivio.get(presente);
+			
+			old.setColor (col);
+			
+		}
+		else
+		{
+			throw new AutoException ("Auto non presente nell'archivio");
+		}
+	}
+	
+	/**
+	 * Modifica il colore di un'auto.
+	 * 
+	 * @param auto da modificare
+	 * @param nuovo prezzo
+	 * 
+	 * @throws AutoException se l'auto non è presente nell'archivio.
+	 * 
+	 * */
+	public void setNewPrice (Auto a, float p) throws AutoException
+	{
+		
+		int presente = archivio.indexOf(a);
+		
+		Auto old = null;
+		
+		if (presente > -1)
+		{
+			old = archivio.get(presente);
+			
+			old.setPrezzo (p);
+			
+		}
+		else
+		{
+			throw new AutoException ("Auto non presente nell'archivio");
+		}
+	}
+	
 	
 	/**
 	 * Restituisce la prossima auto da consegnare

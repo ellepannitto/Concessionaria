@@ -29,6 +29,11 @@ public class FilterByKmCreator implements CallMe
 		this.l = l;
 	}
 	
+	/**
+	 * 
+	 * crea un filtro per le auto in base ai km percorsi, e lo aggiunge alla lista di filtri
+	 * 
+	 * */
 	public void call()
 	{
 		int min = Menu.get_int("Inserisci minimo (-1 se non richiesto)");
@@ -41,7 +46,11 @@ public class FilterByKmCreator implements CallMe
 		l.add(f);
 	}
 	
-	public String getDescrizione()
+	/**
+	 * 
+	 * restituisce una descrizione per la voce del menù
+	 * 
+	 * */	public String getDescrizione()
 	{
 		return "Filtra per Chilometri Percorsi";
 	}

@@ -29,6 +29,11 @@ public class FilterByMatriculationYearCreator implements CallMe
 		this.l = l;
 	}
 	
+	/**
+	 * 
+	 * crea un filtro per le auto in base all'anno di immatricolazione percorsi, e lo aggiunge alla lista di filtri
+	 * 
+	 * */
 	public void call()
 	{
 		int min = Menu.get_int("Inserisci minimo (-1 se non richiesto) ");
@@ -39,6 +44,11 @@ public class FilterByMatriculationYearCreator implements CallMe
 		l.add(f);
 	}
 	
+	/**
+	 * 
+	 * restituisce una descrizione per la voce nel menù
+	 * 
+	 * */
 	public String getDescrizione()
 	{
 		return "Filtra per anno di immatricolazione";

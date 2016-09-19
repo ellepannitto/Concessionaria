@@ -38,13 +38,16 @@ public class FilterByCostumerCreator implements CallMe
 	{
 		String s = Menu.get_pattern("Inserisci pattern da ricercare");
 		
-		//~ check_string(s);
-		
 		FilterByCustomer f = new FilterByCustomer(s);
 		
 		l.add(f);
 	}
 	
+	/**
+	 * 
+	 * restituisce una descrizione per la voce del menù
+	 * 
+	 * */
 	public String getDescrizione()
 	{
 		return "Filtra per Cliente";

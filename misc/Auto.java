@@ -33,6 +33,16 @@ public class Auto implements Serializable
 		this.prezzo_di_vendita = prezzo;
 	}
 	
+	public void setColor (String c)
+	{
+		this.colore = c;
+	}
+
+	public void setPrezzo (float p)
+	{
+		this.prezzo_di_vendita = p;
+	}
+	
 	/**
 	 * @return la targa dell'Auto
 	 * */

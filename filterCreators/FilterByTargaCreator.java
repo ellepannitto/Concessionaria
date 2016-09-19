@@ -29,6 +29,11 @@ public class FilterByTargaCreator implements CallMe
 		this.l = l;
 	}
 	
+	/**
+	 * 
+	 * crea un filtro per le auto in base alla targa, e lo aggiunge ad una lista di filtri
+	 * 
+	 * */
 	public void call()
 	{
 		String s = Menu.get_pattern("Inserisci pattern da ricercare");
@@ -39,9 +44,14 @@ public class FilterByTargaCreator implements CallMe
 		l.add(f);
 	}
 	
+	/**
+	 * 
+	 * restituisce una descrizione per la voce nel menù
+	 * 
+	 * */
 	public String getDescrizione()
 	{
-		return "Filtra per Cliente";
+		return "Filtra per Targa (espressione regolare)";
 	}
 	
 }

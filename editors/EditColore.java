@@ -7,11 +7,11 @@ import misc.*;
 import menu.*;
 import exceptions.*;
 
-public class EditDeliveryDate implements CallMe
+public class EditColore implements CallMe
 {
 	private Concessionaria concessionaria;
 	
-	public EditDeliveryDate (Concessionaria c)
+	public EditColore (Concessionaria c)
 	{
 		this.concessionaria = c;
 	}
