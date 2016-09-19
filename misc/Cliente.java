@@ -44,6 +44,10 @@ public class Cliente implements Serializable
 		return nome;
 	}
 	
+	
+	/**
+	 * @return restituisce una stringa che rappresenta l'oggetto
+	 * */
 	public String toString()
 	{
 		return this.nome + " " + this.cognome;

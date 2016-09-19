@@ -10,23 +10,28 @@ import exceptions.*;
 
 /**
  * 
- * 
- * 
- * 
+ * Mantiene un archivio di Auto. 
+ * E' possibile aggiungere un'auto, rimuoverla, modificarne i dati relativi.
+ * Inoltre è possibile ottenere una lista delle auto presenti che rispetti determinati criteri specificati da un filtro, e ordinata secondo una funzione di ordinamento specificata.
  * 
  * */
-
 public class Concessionaria 
 {
 	private Vector<Auto> archivio = new Vector<Auto>();
 	
-	private Vector<Cliente> clienti_registrati;
+	//~ private Vector<Cliente> clienti_registrati;
 
+	/**
+	 * Inizializza una concessionaria vuota.
+	 * */
 	public Concessionaria ()
 	{
 		;
 	}
 
+	/**
+	 * Inizializza una concessionaria a partire da un file
+	 * */
 	public Concessionaria (String filename)
 	{
 		try
@@ -39,9 +44,16 @@ public class Concessionaria
 			System.out.println("E' stata creata una nuova concessionaria");
 			
 		}
-		
 	}
 
+
+	/**
+	 * Aggiunge un'auto all'archivio.
+	 * 
+	 * @param auto da aggiungere
+	 * 
+	 * @throws AutoException se l'auto è già presente
+	 * */
 	public void add_auto (Auto auto) throws AutoException
 	{
 		boolean non_presente = !archivio.contains(auto);
@@ -53,6 +65,13 @@ public class Concessionaria
 			
 	}
 	
+	/**
+	 * Rimuove un'auto dall'archivio.
+	 * 
+	 * @param auto da rimuovere
+	 * 
+	 * @throws AutoException se l'auto non è presente
+	 * */
 	public void remove_auto (Auto auto) throws AutoException
 	{
 		boolean presente = archivio.contains(auto);
@@ -64,6 +83,15 @@ public class Concessionaria
 			
 	}
 	
+	/**
+	 * 
+	 * Fornisce la lista di auto presenti nell'archivio, ordinate secondo una funzione di ordinamento.
+	 * 
+	 * @param o funzione di ordinamento
+	 * 
+	 * @return lista di auto ordinate
+	 * 
+	 * */
 	public Auto[] list_autos (Comparator<Auto> o)
 	{
 		Auto[] sorted_list = archivio.toArray( new Auto[archivio.size()] );
@@ -72,7 +100,16 @@ public class Concessionaria
 		
 		return sorted_list;
 	}
-	
+
+	/**
+	 * 
+	 * Fornisce una lista di auto che rispettano un filtro.
+	 * 
+	 * @param o funzione di filtro
+	 * 
+	 * @return lista di auto che rispettano il criterio specificato
+	 * 
+	 * */	
 	public Auto[] filter_autos (Filterer<Auto> o)
 	{
 		Vector<Auto> return_list = new Vector<Auto>();
@@ -86,6 +123,16 @@ public class Concessionaria
 		return return_list.toArray( new Auto[return_list.size()] );
 	}
 	
+	/**
+	 * 
+	 * Fornisce una lista ordinata di auto che rispettano un filtro.
+	 * 
+	 * @param f funzione di filtro
+	 * @param c funzione di ordinamento
+	 * 
+	 * @return lista ordinata di auto che rispettano il criterio specificato
+	 * 
+	 * */
 	public Auto[] filter_autos (Filterer<Auto> f, Comparator<Auto> c)
 	{
 		Vector<Auto> filtered_list = new Vector<Auto>();
@@ -102,9 +149,16 @@ public class Concessionaria
 		Arrays.sort(sorted_list, c);
 		
 		return sorted_list;
-		
 	}
 	
+	
+	/**
+	 * Controlla che una data sia successiva alla data corrente.
+	 * 
+	 * @param data da controllare
+	 * 
+	 * @return true se la data è successiva alla data corrente, false altrimenti.
+	 * */
 	public static boolean check_future_date (GregorianCalendar data)
 	{
 		GregorianCalendar now = new GregorianCalendar();
@@ -114,6 +168,15 @@ public class Concessionaria
 		return diff > 0;	
 	}
 	
+	
+	/**
+	 * Controlla che una targa sia nel formato corretto (CCdddCC)
+	 * 
+	 * @param targa da controllare
+	 * 
+	 * @return true se la targa rispetta il formato, false altrimenti
+	 * 
+	 * */
 	public static boolean check_targa (String targa)
 	{
 		Pattern t = Pattern.compile ("[A-z]{2}[0-9]{3}[A-z]{2}");
@@ -121,10 +184,18 @@ public class Concessionaria
 		Matcher m = t.matcher(targa);
 		
 		return m.matches();
-		
-		
 	}
 	
+	/**
+	 * Modifica la data di consegna di un'auto nuova.
+	 * 
+	 * @param auto da modificare
+	 * @param nuova data
+	 * 
+	 * @throws AutoException se l'auto non è presente nell'archivio o non è di tipo nuova.
+	 * @throws DateException se la data non è successiva alla data corrente
+	 * 
+	 * */
 	public void setNewDeliveryDate (Auto a, GregorianCalendar data) throws AutoException, DateException
 	{
 		
@@ -154,6 +225,15 @@ public class Concessionaria
 		}
 	}
 	
+	
+	/**
+	 * Restituisce la prossima auto da consegnare
+	 * 
+	 * @return prossima auto da consegnare
+	 * 
+	 * @throws AutoException nel caso in cui non ci siano prossime consegne
+	 * 
+	 * */
 	public Auto getNextDelivery() throws AutoException
 	{
 		if (archivio.size() == 0) 
@@ -197,6 +277,14 @@ public class Concessionaria
 		return next;
 	}
 	
+	/**
+	 * Serializza l'archivio su un file
+	 * 
+	 * @param nome del file su cui scrivere
+	 * 
+	 * @throws IOException nel caso di problemi in fase di scrittura
+	 * 
+	 * */
 	public void dump (String filename) throws IOException
 	{
 		try
@@ -212,6 +300,15 @@ public class Concessionaria
 		}
 	}
 	
+	
+	/**
+	 * Carica l'archivio da un file
+	 * 
+	 * @param nome del file da cui caricare l'archivio
+	 * 
+	 * @throws IOException nel caso di problemi in fase di lettura
+	 * 
+	 * */
 	public void load (String filename) throws IOException
 	{
 		try
@@ -220,6 +317,9 @@ public class Concessionaria
 			ObjectInputStream oin = new ObjectInputStream(fin);
 			
 			Object oread = oin.readObject();
+			
+			//~ @SuppressWarnings("unchecked")
+			//~ @SuppressWarnings
 			archivio = (Vector<Auto>)oread;
 		}
 		catch (Exception e)
@@ -227,5 +327,4 @@ public class Concessionaria
 			throw new IOException("Errore durante il caricamento dal file "+filename);
 		}
 	}
-	
 }

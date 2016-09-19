@@ -3,6 +3,10 @@ package misc;
 import java.util.*;
 import java.text.SimpleDateFormat;
 
+/**
+ * Memorizza i dati di un'auto di categoria Nuova.
+ * 
+ * */
 public class AutoNuova extends Auto 
 {
 	protected GregorianCalendar data_di_consegna;
@@ -27,6 +31,9 @@ public class AutoNuova extends Auto
 		this.cliente = cliente;
 	}
 	
+	/**
+	 * @return restituisce una stringa che rappresenta l'oggetto.
+	 * */
 	public String toString ()
 	{
 		String auto = super.toString();

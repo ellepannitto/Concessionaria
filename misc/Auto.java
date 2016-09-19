@@ -4,9 +4,7 @@ import java.util.*;
 import java.io.*;
 
 /**
- * 
- * 
- * 
+ * Memorizza i dati di un'auto.
  * 
  * */
 public class Auto implements Serializable
@@ -82,6 +80,9 @@ public class Auto implements Serializable
 		return this.targa.hashCode();
 	}
 	
+	/**
+	 * @return restituisce una stringa che rappresenta l'oggetto
+	 * */
 	public String toString()
 	{
 		String rigauno = String.format("Cat: Nuova\tTarga: %s\n", this.targa);

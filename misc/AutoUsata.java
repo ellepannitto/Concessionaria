@@ -2,6 +2,11 @@ package misc;
 
 import java.util.*;
 
+
+/**
+ * Memorizza i dati di un'auto di categoria Usata.
+ * 
+ * */
 public class AutoUsata extends Auto
 {
 	protected int anno_di_immatricolazione;
@@ -26,6 +31,10 @@ public class AutoUsata extends Auto
 		this.chilometri_percorsi = km;
 	}
 	
+	
+	/**
+	 * @return restituisce una stringa che rappresenta l'oggetto.
+	 * */
 	public String toString ()
 	{
 		String auto = super.toString();
