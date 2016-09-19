@@ -10,21 +10,30 @@ import filterCreators.*;
 
 /**
  * 
- * Implementa un'interfaccia CallMe.
- * Se chiamato carica una concessionaria da file.
+ * Implementazione dell'interfaccia CallMe che consente di creare una voce del menù per caricare una concessionaria da un file
  * 
  * */
 public class Load implements CallMe
 {
+	//concessionaria su cui operare
 	private Concessionaria c;
 	
+	/**
+	 * 
+	 * Inizializza un nuovo oggetto, data la concessionaria su cui operare
+	 * 
+	 * @param c la concessionaria su cui operare
+	 * 
+	 * */
 	public Load (Concessionaria c)
 	{
 		this.c = c;
 	}
 	
 	/**
-	 * Carica una concessionaria da file
+	 * 
+	 * Se invocata chiede all'utente in input il nome di un file F, poi carica la concessionaria dal file F
+	 * 
 	 * */
 	public void call()
 	{

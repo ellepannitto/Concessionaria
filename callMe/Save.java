@@ -8,15 +8,33 @@ import menu.*;
 import filters.*;
 import filterCreators.*;
 
+/**
+ * 
+ * Implementazione dell'interfaccia CallMe che consente di salvare il contenuto di una concessionaria su un file.
+ * 
+ * */
 public class Save implements CallMe
 {
+	// la concessionaria su cui lavorare
 	private Concessionaria c;
 	
+	/**
+	 * 
+	 * Inizializza un nuovo oggetto, data la concessionaria su cui lavorare
+	 * 
+	 * @param c la concessionaria su cui lavorare
+	 * 
+	 * */
 	public Save (Concessionaria c)
 	{
 		this.c = c;
 	}
 	
+	/**
+	 * 
+	 * Chiede all'utente in input il nome di un file F, poi salva l'archivio dellla concessionaria sul file F.
+	 * 
+	 * */
 	public void call()
 	{
 		String filename = Menu.get_string ("Inserisci nome del file");
@@ -33,6 +51,11 @@ public class Save implements CallMe
 		
 	}
 	
+	/**
+	 * 
+	 * restituisce la descrizione per questa voce del menù
+	 * 
+	 * */
 	public String getDescrizione ()
 	{
 		return "Salva l'archivio su un file";

@@ -12,8 +12,14 @@ import exceptions.*;
  * */
 public class Remove implements CallMe
 {
+	// la concessionaria su cui operare
 	private Concessionaria c;
 	
+	/**
+	 * 
+	 * Inizializza un nuovo oggetto, data la concessionaria su cui operare
+	 * 
+	 * */
 	public Remove (Concessionaria c)
 	{
 		this.c = c;
