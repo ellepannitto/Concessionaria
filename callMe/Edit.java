@@ -5,6 +5,7 @@ import java.util.*;
 import misc.*;
 import menu.*;
 import exceptions.*;
+import editors.*;
 
 /**
  * 
@@ -37,20 +38,18 @@ public class Edit implements CallMe
 	 * */
 	public void call()
 	{
-		String t = Menu.get_string("targa");
 		
-		GregorianCalendar d = Menu.get_data("data");
-
-		Auto a = new Auto(t, null, 0, null, 0);
-
-		try
-		{
-			c.setNewDeliveryDate(a, d);
-		}
-		catch (AutoException | DateException e)
-		{
-			System.err.println ("Impossibile settare nuova data - "+e);
-		}
+		List<CallMe> possible_edits = new ArrayList<CallMe>();
+		
+		possible_edits.add (new EditDeliveryDate (c));
+		possible_edits.add (new EditColore (c));
+		possible_edits.add (new EditPrezzo (c));
+		
+		
+		Menu.show_menu (possible_edits, "Selezionare tipo di modifica:");
+		
+		
+		
 	}
 	
 	/**
@@ -60,6 +59,6 @@ public class Edit implements CallMe
 	 * */
 	public String getDescrizione ()
 	{
-		return "Modifica data di consegna";
+		return "Modifica";
 	}
 }

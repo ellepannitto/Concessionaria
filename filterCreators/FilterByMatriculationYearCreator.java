@@ -7,10 +7,23 @@ import callMe.*;
 import misc.*;
 import menu.*;
 
+/**
+ * 
+ * Implementa l'interfaccia CallMe per creare una voce del menù che setta un filtro per le auto in base all'anno di immatricolazione, e lo aggiunge ad una lista di filtri
+ * 
+ * */
 public class FilterByMatriculationYearCreator implements CallMe
 {
+	// lista di filtri alla quale aggiungere il filtro creato
 	private List<Filterer<Auto>> l;
 	
+	/**
+	 * 
+	 * setta la lista di filtri alla quale aggiungere il filtro creato
+	 *
+	 * @param l lista di filtri alla quale aggiungere il filtro creato
+	 * 
+	 * */
 	public FilterByMatriculationYearCreator (List<Filterer<Auto>> l)
 	{
 		this.l = l;
