@@ -1,4 +1,4 @@
-package callMe;
+package menuItem;
 
 import java.util.*;
 import java.io.*;
@@ -10,10 +10,10 @@ import filterCreators.*;
 
 /**
  * 
- * Implementazione dell'interfaccia CallMe che consente di salvare il contenuto di una concessionaria su un file.
+ * Implementazione dell'interfaccia MenuItem che consente di salvare il contenuto di una concessionaria su un file.
  * 
  * */
-public class Save implements CallMe
+public class Save implements MenuItem
 {
 	// la concessionaria su cui lavorare
 	private Concessionaria c;
@@ -35,7 +35,7 @@ public class Save implements CallMe
 	 * Chiede all'utente in input il nome di un file F, poi salva l'archivio dellla concessionaria sul file F.
 	 * 
 	 * */
-	public void call()
+	public void selected()
 	{
 		String filename = Menu.get_string ("Inserisci nome del file");
 		

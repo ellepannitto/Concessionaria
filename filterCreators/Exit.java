@@ -3,16 +3,16 @@ package filterCreators;
 import java.util.*;
 
 import filters.*;
-import callMe.*;
+import menuItem.*;
 import misc.*;
 import menu.*;
 
 /**
  * 
- * Implementa l'interfaccia CallMe per creare una voce del menù che permette di interrompere l'inserimento dei filtri
+ * Implementa l'interfaccia MenuItem per creare una voce del menù che permette di interrompere l'inserimento dei filtri
  * 
  * */
-public class Exit implements CallMe
+public class Exit implements MenuItem
 {
 	// lista di filtri scelti
 	private List<Filterer<Auto>> l;
@@ -37,7 +37,7 @@ public class Exit implements CallMe
 	 * Infomra l'oggetto che è stato chiamato
 	 * 
 	 * */
-	public void call()
+	public void selected()
 	{			
 		chiamato = true;
 		

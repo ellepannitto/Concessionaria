@@ -74,7 +74,7 @@ public class Auto implements Serializable
 	}
 	
 	/**
-	 * @param oggetto da confrontare
+	 * @param a oggetto da confrontare
 	 * @return true se le targhe del parametro e dell'auto coincidono
 	 * */
 	public boolean equals (Object a)

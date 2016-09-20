@@ -1,4 +1,4 @@
-package callMe;
+package menuItem;
 
 import java.util.*;
 
@@ -10,11 +10,11 @@ import sortingCreators.*;
 
 /**
  * 
- * Implementazione dell'interfaccia CallMe che consente di creare una voce del menù per visualizzare le automobili di una concessionaria
+ * Implementazione dell'interfaccia MenuItem che consente di creare una voce del menù per visualizzare le automobili di una concessionaria
  * è possibile applicare dei filtri per ridurre il numero di automobili mostrate, nonché scegliere con quale ordinamento mostrarle 
  * 
  * */
-public class Show implements CallMe
+public class Show implements MenuItem
 {
 	// la concessionaria sulla quale operare
 	private Concessionaria c;
@@ -37,9 +37,9 @@ public class Show implements CallMe
 	 * Verranno poi mostrate solo le auto che rispettano i filtri scelti, ordinate con la funzione di ordinamento scelta.
 	 * 
 	 * */
-	public void call()
+	public void selected()
 	{
-		List<CallMe> filters_to_show = new ArrayList<CallMe>();
+		List<MenuItem> filters_to_show = new ArrayList<MenuItem>();
 		
 		List<Filterer<Auto>> filters = new ArrayList<Filterer<Auto>>();
 		
@@ -64,18 +64,25 @@ public class Show implements CallMe
 		ss.add ( new CompareByPrezzoCreator (ss) );
 		
 		
-		List<CallMe> orderings_to_show = ss.get_list();
+		List<MenuItem> orderings_to_show = ss.get_list();
 		Menu.show_menu ( orderings_to_show , "Scegli il tipo di ordinamento" );
 		
 		Comparator<Auto> funzione_ordinamento_scelta = ss.get_ordering();
 		
 		Auto[] lista = c.filter_autos(filtro, funzione_ordinamento_scelta);
 		
-		for (Auto a: lista)
+		if (lista.length == 0)
 		{
-			System.out.println(a);
+			Menu.show ("Nessun risultato");
+		
 		}
 		
+		for (Auto a: lista)
+		{
+			Menu.show(a.toString());
+		}
+		
+		Menu.wait_input();
 		
 		
 	}

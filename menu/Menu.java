@@ -4,7 +4,7 @@ import java.util.*;
 import java.text.DecimalFormatSymbols;
 
 import misc.*;
-import callMe.*;
+import menuItem.*;
 import filters.*;
 
 public class Menu
@@ -24,11 +24,11 @@ public class Menu
 		System.out.flush();
 	}
 	
-	public static void show_menu(List<CallMe> options, String intestazione)
+	public static void show_menu(List<MenuItem> options, String intestazione)
 	{
 		boolean corretto = false;
 		
-		//~ flush_console();
+		flush_console();
 		
 		while (!corretto)
 		{
@@ -46,9 +46,9 @@ public class Menu
 			{
 				int n = Integer.parseInt(scelta);
 				
-				CallMe selected = options.get(n-1);
+				MenuItem selected = options.get(n-1);
 				
-				selected.call();
+				selected.selected();
 				
 				corretto = true;	
 			}
@@ -223,6 +223,21 @@ public class Menu
 		return x;
 	}
 	
+	public static void show (String s)
+	{
+		System.out.println(s);
+	}
+	
+	public static void wait_input ()
+	{
+		System.out.println("\npremi ENTER per continuare");
+		try
+		{
+			System.in.read();
+		}catch(Exception e){
+			;
+		}
+	}
 
 	
 }

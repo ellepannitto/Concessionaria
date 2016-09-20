@@ -20,8 +20,8 @@ public class AutoNuova extends Auto
 	 * @param cilindrata dell'Auto
 	 * @param colore dell'Auto
 	 * @param prezzo dell'Auto
-	 * @param data di consegna prevista
-	 * @param cliente
+	 * @param data data di consegna prevista
+	 * @param cliente cliente
 	 * */
 	public AutoNuova (String targa, String modello, int cilindrata, String colore, float prezzo, GregorianCalendar data, Cliente cliente)
 	{
@@ -48,7 +48,7 @@ public class AutoNuova extends Auto
 	/**
 	 * imposta una diversa data di consegna
 	 * 
-	 * @param nuova data da impostare
+	 * @param nuova_data nuova data da impostare
 	 * */
 	public void setNewDate (GregorianCalendar nuova_data)
 	{

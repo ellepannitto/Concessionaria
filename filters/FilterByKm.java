@@ -14,8 +14,8 @@ public class FilterByKm implements Filterer<Auto>
 	/**
 	 * Inizializza un nuovo Filterer
 	 * 
-	 * @param il minimo numero di chilometri accettati
-	 * @param il massimo numero di chilometri accettati
+	 * @param min il minimo numero di chilometri accettati
+	 * @param max il massimo numero di chilometri accettati
 	 * 
 	 * */
 	public FilterByKm (int min, int max) 

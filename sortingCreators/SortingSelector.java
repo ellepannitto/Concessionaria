@@ -2,7 +2,7 @@ package sortingCreators;
 
 import java.util.*;
 
-import callMe.*;
+import menuItem.*;
 import compare.*;
 import misc.*;
 
@@ -16,7 +16,7 @@ public class SortingSelector
 	// funzione di ordinamento scelta
 	private Comparator<Auto> funzione_di_ordinamento;
 	// lista di possibili funzioni di ordinamento
-	private List<CallMe> lista = new ArrayList<CallMe> (); 
+	private List<MenuItem> lista = new ArrayList<MenuItem> (); 
 	
 	/**
 	 * restituisce la funzione di ordinamento scelta
@@ -47,7 +47,7 @@ public class SortingSelector
 	 * @return una lista di creatori di funzioni di ordinamento, corrispondenti alle funzioni di ordinamento presenti
 	 * 
 	 * */
-	public List<CallMe> get_list ()
+	public List<MenuItem> get_list ()
 	{
 		return lista;
 	}

@@ -21,7 +21,7 @@ public class FilterByCustomer implements Filterer<Auto>
 	/**
 	 * Inizializza un nuovo Filterer
 	 * 
-	 * @param pattern da cercare (cognome)
+	 * @param pattern pattern da cercare (cognome)
 	 * */
 	public FilterByCustomer (String pattern) 
 	{
@@ -32,8 +32,8 @@ public class FilterByCustomer implements Filterer<Auto>
 	/**
 	 * Inizializza un nuovo Filterer
 	 * 
-	 * @param primo pattern da cercare (cognome)
-	 * @param secondo pattern da cercare (nome)
+	 * @param surname primo pattern da cercare (cognome)
+	 * @param name secondo pattern da cercare (nome)
 	 * */
 	public FilterByCustomer (String surname, String name) 
 	{

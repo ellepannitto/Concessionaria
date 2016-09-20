@@ -6,7 +6,7 @@ import menu.*;
 import misc.*;
 import filters.*;
 import filterCreators.*;
-import callMe.*;
+import menuItem.*;
 import compare.*;
 
 public class Main
@@ -25,7 +25,7 @@ public class Main
 		Menu menu = new Menu();
 		
 		
-		List<CallMe> menu_principale = new ArrayList<CallMe>();
+		List<MenuItem> menu_principale = new ArrayList<MenuItem>();
 		
 		menu_principale.add(new Add(c));
 		menu_principale.add(new Remove(c));
@@ -34,7 +34,7 @@ public class Main
 		menu_principale.add(new NextDelivery(c));
 		menu_principale.add(new Save(c));
 		menu_principale.add(new Load(c));
-		menu_principale.add(new callMe.Exit());
+		menu_principale.add(new menuItem.Exit());
 		
 		while (!esci)
 			Menu.show_menu(menu_principale, "Azioni possibili");

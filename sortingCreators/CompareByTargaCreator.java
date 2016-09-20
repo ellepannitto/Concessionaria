@@ -29,7 +29,7 @@ public class CompareByTargaCreator extends SortingCreator
      * Crea una funzione di ordinamento che ordinerà le auto secondo la targa, e la setta come selezionata in un oggetto di classe SortingSelector 
 	 * 
 	 * */
-	public void call()
+	public void selected()
 	{
 
 		this.selettore.set_ordering_function (new CompareByTarga() );

@@ -16,9 +16,9 @@ public class Cliente implements Serializable
 	/**
 	 * Inizializza un cliente a partire dai dati anagrafici.
 	 * 
-	 * @param nome del cliente
-	 * @param cognome del cliente
-	 * @param codice fiscale del cliente
+	 * @param n nome del cliente
+	 * @param c cognome del cliente
+	 * @param cf codice fiscale del cliente
 	 * 
 	 * */
 	public Cliente (String n, String c, String cf)

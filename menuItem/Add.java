@@ -1,4 +1,4 @@
-package callMe;
+package menuItem;
 
 import misc.*;
 import menu.*;
@@ -6,11 +6,11 @@ import exceptions.*;
 
 /**
  * 
- * Implementazione dell'interfaccia CallMe che consente di creare una voce del menù Aggiungere un auto ad una concessionaria
+ * Implementazione dell'interfaccia MenuItem che consente di creare una voce del menù Aggiungere un auto ad una concessionaria
  * Se la voce è selezionata vengono chiesti all'utente i dati di un'automobile, che viene aggiunta allla concessionaria
  * 
  * */
-public class Add implements CallMe
+public class Add implements MenuItem
 {
 	// concessionaria su cui operare
 	private Concessionaria c;
@@ -32,7 +32,7 @@ public class Add implements CallMe
 	 * Chiede in input all'utente i dati di un'auto A, poi aggiunge A alla concessionaria
 	 * 
 	 * */
-	public void call()
+	public void selected()
 	{
 		Auto a = Menu.get_auto();
 

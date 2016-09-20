@@ -2,12 +2,12 @@ package editors;
 
 import java.util.*;
 
-import callMe.*;
+import menuItem.*;
 import misc.*;
 import menu.*;
 import exceptions.*;
 
-public class EditDeliveryDate implements CallMe
+public class EditDeliveryDate implements MenuItem
 {
 	private Concessionaria concessionaria;
 	
@@ -17,7 +17,7 @@ public class EditDeliveryDate implements CallMe
 	}
 	
 	
-	public void call()
+	public void selected()
 	{
 		String t = Menu.get_string("targa");
 		

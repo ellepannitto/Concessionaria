@@ -3,16 +3,16 @@ package filterCreators;
 import java.util.*;
 
 import filters.*;
-import callMe.*;
+import menuItem.*;
 import misc.*;
 import menu.*;
 
 /**
  * 
- * Implementa l'interfaccia CallMe per creare una voce del menù che setta un filtro per le auto in base alla targa, e lo aggiunge ad una lista di filtri
+ * Implementa l'interfaccia MenuItem per creare una voce del menù che setta un filtro per le auto in base alla targa, e lo aggiunge ad una lista di filtri
  * 
  * */
-public class FilterByTargaCreator implements CallMe
+public class FilterByTargaCreator implements MenuItem
 {
 	// lista di filtri alla quale aggiungere il filtro creato
 	private List<Filterer<Auto>> l;
@@ -34,7 +34,7 @@ public class FilterByTargaCreator implements CallMe
 	 * crea un filtro per le auto in base alla targa, e lo aggiunge ad una lista di filtri
 	 * 
 	 * */
-	public void call()
+	public void selected()
 	{
 		String s = Menu.get_pattern("Inserisci pattern da ricercare");
 		

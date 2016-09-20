@@ -1,4 +1,4 @@
-package callMe;
+package menuItem;
 
 import java.util.*;
 
@@ -8,11 +8,11 @@ import exceptions.*;
 
 /**
  * 
- * Implementazione dell'interfaccia CallMe che consente di creare una voce del menù per visualizzare la prossima auto da consegnare di una concessionaria
+ * Implementazione dell'interfaccia MenuItem che consente di creare una voce del menù per visualizzare la prossima auto da consegnare di una concessionaria
  * Se la voce è selezionata, mostra la prossima auto da consegnare, o un errore nel caso non ci siano 
  * 
  * */
-public class NextDelivery implements CallMe
+public class NextDelivery implements MenuItem
 {
 	// la concessionaria sulla quale operare
 	private Concessionaria c;
@@ -35,13 +35,14 @@ public class NextDelivery implements CallMe
 	 * 
 	 * 
 	 * */
-	public void call()
+	public void selected()
 	{
 		
 		try
 		{
 			Auto a = c.getNextDelivery();
-			System.out.println(a);
+			Menu.show(a.toString());
+			Menu.wait_input();
 		}
 		catch (AutoException e)
 		{

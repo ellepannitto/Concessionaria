@@ -1,4 +1,4 @@
-package callMe;
+package menuItem;
 
 /**
  *
@@ -6,12 +6,12 @@ package callMe;
  * In questo modo è possibile formare un menu con più voci e eseguire la funzione corrispondente alla scelta dell'utente.
  * 
  * */
-public interface CallMe
+public interface MenuItem
 {
 	/**
 	 * esegue una funzione generica
 	 * */
-	public void call ();
+	public void selected ();
 	
 	/**
 	 * restituisce la descrizione della funzione chiamata (ad esempio per essere utilizzata come voce del menu).

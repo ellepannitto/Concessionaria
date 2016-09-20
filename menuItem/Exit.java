@@ -1,4 +1,4 @@
-package callMe;
+package menuItem;
 
 import java.util.*;
 
@@ -8,10 +8,10 @@ import main.*;
 
 /**
  * 
- * Implementazione dell'interfaccia CallMe che consente di creare una voce del menù uscire dal programma
+ * Implementazione dell'interfaccia MenuItem che consente di creare una voce del menù uscire dal programma
  * 
  * */
-public class Exit implements CallMe
+public class Exit implements MenuItem
 {
 	
 	/**
@@ -19,7 +19,7 @@ public class Exit implements CallMe
 	 * se invocata, comunica al programma che deve terminare
 	 * 
 	 * */
-	public void call()
+	public void selected()
 	{
 		Main.esci = true;
 	}

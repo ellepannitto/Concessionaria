@@ -1,4 +1,4 @@
-package callMe;
+package menuItem;
 
 import java.util.*;
 import java.io.*;
@@ -10,10 +10,10 @@ import filterCreators.*;
 
 /**
  * 
- * Implementazione dell'interfaccia CallMe che consente di creare una voce del menù per caricare una concessionaria da un file
+ * Implementazione dell'interfaccia MenuItem che consente di creare una voce del menù per caricare una concessionaria da un file
  * 
  * */
-public class Load implements CallMe
+public class Load implements MenuItem
 {
 	//concessionaria su cui operare
 	private Concessionaria c;
@@ -35,7 +35,7 @@ public class Load implements CallMe
 	 * Se invocata chiede all'utente in input il nome di un file F, poi carica la concessionaria dal file F
 	 * 
 	 * */
-	public void call()
+	public void selected()
 	{
 		String filename = Menu.get_string ("Inserisci nome del file");
 		

@@ -7,6 +7,7 @@ import java.lang.*;
 
 import filters.*;
 import exceptions.*;
+import menu.*;
 
 /**
  * 
@@ -41,8 +42,8 @@ public class Concessionaria
 		catch (IOException e)
 		{
 			System.err.println("Impossibile caricare l'archivio - "+e);
-			System.out.println("E' stata creata una nuova concessionaria");
-			
+			Menu.show ("E' stata creata una nuova concessionaria (vuota)");
+			Menu.wait_input();
 		}
 	}
 
@@ -50,7 +51,7 @@ public class Concessionaria
 	/**
 	 * Aggiunge un'auto all'archivio.
 	 * 
-	 * @param auto da aggiungere
+	 * @param auto auto da aggiungere
 	 * 
 	 * @throws AutoException se l'auto è già presente
 	 * */
@@ -68,7 +69,7 @@ public class Concessionaria
 	/**
 	 * Rimuove un'auto dall'archivio.
 	 * 
-	 * @param auto da rimuovere
+	 * @param auto auto da rimuovere
 	 * 
 	 * @throws AutoException se l'auto non è presente
 	 * */
@@ -155,7 +156,7 @@ public class Concessionaria
 	/**
 	 * Controlla che una data sia successiva alla data corrente.
 	 * 
-	 * @param data da controllare
+	 * @param data data da controllare
 	 * 
 	 * @return true se la data è successiva alla data corrente, false altrimenti.
 	 * */
@@ -172,7 +173,7 @@ public class Concessionaria
 	/**
 	 * Controlla che una targa sia nel formato corretto (CCdddCC)
 	 * 
-	 * @param targa da controllare
+	 * @param targa targa da controllare
 	 * 
 	 * @return true se la targa rispetta il formato, false altrimenti
 	 * 
@@ -189,8 +190,8 @@ public class Concessionaria
 	/**
 	 * Modifica la data di consegna di un'auto nuova.
 	 * 
-	 * @param auto da modificare
-	 * @param nuova data
+	 * @param a auto da modificare
+	 * @param data nuova data
 	 * 
 	 * @throws AutoException se l'auto non è presente nell'archivio o non è di tipo nuova.
 	 * @throws DateException se la data non è successiva alla data corrente
@@ -228,8 +229,8 @@ public class Concessionaria
 	/**
 	 * Modifica il colore di un'auto.
 	 * 
-	 * @param auto da modificare
-	 * @param nuovo colore
+	 * @param a auto da modificare
+	 * @param col nuovo colore
 	 * 
 	 * @throws AutoException se l'auto non è presente nell'archivio.
 	 * 
@@ -257,8 +258,8 @@ public class Concessionaria
 	/**
 	 * Modifica il colore di un'auto.
 	 * 
-	 * @param auto da modificare
-	 * @param nuovo prezzo
+	 * @param a auto da modificare
+	 * @param p nuovo prezzo
 	 * 
 	 * @throws AutoException se l'auto non è presente nell'archivio.
 	 * 
@@ -338,7 +339,7 @@ public class Concessionaria
 	/**
 	 * Serializza l'archivio su un file
 	 * 
-	 * @param nome del file su cui scrivere
+	 * @param filename nome del file su cui scrivere
 	 * 
 	 * @throws IOException nel caso di problemi in fase di scrittura
 	 * 
@@ -362,7 +363,7 @@ public class Concessionaria
 	/**
 	 * Carica l'archivio da un file
 	 * 
-	 * @param nome del file da cui caricare l'archivio
+	 * @param filename nome del file da cui caricare l'archivio
 	 * 
 	 * @throws IOException nel caso di problemi in fase di lettura
 	 * 

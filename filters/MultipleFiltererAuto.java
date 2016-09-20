@@ -11,7 +11,7 @@ public class MultipleFiltererAuto implements Filterer<Auto>
 	/**
 	 * Inizializza un nuovo Filterer
 	 * 
-	 * @param una lista di filtri da rispettare
+	 * @param lista_condizioni una lista di filtri da rispettare
 	 * 
 	 * */
 	public MultipleFiltererAuto (List<Filterer<Auto>> lista_condizioni)

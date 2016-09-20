@@ -20,8 +20,8 @@ public class AutoUsata extends Auto
 	 * @param cilindrata dell'Auto
 	 * @param colore dell'Auto
 	 * @param prezzo dell'Auto
-	 * @param anno di immatricolazione dell'Auto
-	 * @param chilometri percorsi dall'Auto
+	 * @param anno_di_immatricolazione anno di immatricolazione dell'Auto
+	 * @param km chilometri percorsi dall'Auto
 	 * */
 	public AutoUsata (String targa, String modello, int cilindrata, String colore, float prezzo, int anno_di_immatricolazione, int km)
 	{

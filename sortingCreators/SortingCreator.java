@@ -2,17 +2,17 @@ package sortingCreators;
 
 import java.util.*;
 
-import callMe.*;
+import menuItem.*;
 import compare.*;
 import misc.*;
 
 /**
  *
- * Implementa l'interfaccia CallMe per creare una voce del menù che permette di creare una funzione di prdinamento per le auto.
+ * Implementa l'interfaccia MenuItem per creare una voce del menù che permette di creare una funzione di prdinamento per le auto.
  * Tale funzione di ordinamento verrà creata e poi settata come "selezionata" in un oggetto di classe SortingSelector 
  * 
  * */
-public abstract class SortingCreator implements CallMe
+public abstract class SortingCreator implements MenuItem
 {
 	// selettore sul quale lavorare
 	protected SortingSelector selettore;

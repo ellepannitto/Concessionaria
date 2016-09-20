@@ -1,4 +1,4 @@
-package callMe;
+package menuItem;
 
 import java.util.*;
 
@@ -9,11 +9,11 @@ import editors.*;
 
 /**
  * 
- * Implementazione dell'interfaccia CallMe che consente di creare una voce del menù per modificare la data di consegna di un'automobile
+ * Implementazione dell'interfaccia MenuItem che consente di creare una voce del menù per modificare la data di consegna di un'automobile
  * Se la voce è selezionata viene chiesta in input la targa di un'automobile T e una nuova data di consegna, che viene settata per l'automobile con targa T
  * 
  * */
-public class Edit implements CallMe
+public class Edit implements MenuItem
 {
 	//concessionaria sulla quale operare
 	private Concessionaria c;
@@ -36,10 +36,10 @@ public class Edit implements CallMe
 	 * 
 	 * 
 	 * */
-	public void call()
+	public void selected()
 	{
 		
-		List<CallMe> possible_edits = new ArrayList<CallMe>();
+		List<MenuItem> possible_edits = new ArrayList<MenuItem>();
 		
 		possible_edits.add (new EditDeliveryDate (c));
 		possible_edits.add (new EditColore (c));

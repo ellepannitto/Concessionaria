@@ -3,16 +3,16 @@ package filterCreators;
 import java.util.*;
 
 import filters.*;
-import callMe.*;
+import menuItem.*;
 import misc.*;
 import menu.*;
 
 /**
  * 
- * Implementa l'interfaccia CallMe per creare una voce del menù che setta un filtro per le auto in base ai km percorsi, e lo aggiunge ad una lista di filtri
+ * Implementa l'interfaccia MenuItem per creare una voce del menù che setta un filtro per le auto in base ai km percorsi, e lo aggiunge ad una lista di filtri
  * 
  * */
-public class FilterByKmCreator implements CallMe
+public class FilterByKmCreator implements MenuItem
 {
 	// lista di filtri alla quale aggiungere il filtro creato
 	private List<Filterer<Auto>> l;
@@ -34,7 +34,7 @@ public class FilterByKmCreator implements CallMe
 	 * crea un filtro per le auto in base ai km percorsi, e lo aggiunge alla lista di filtri
 	 * 
 	 * */
-	public void call()
+	public void selected()
 	{
 		int min = Menu.get_int("Inserisci minimo (-1 se non richiesto)");
 		int max = Menu.get_int("inserisci massimo (-1 se non richiesto)");
