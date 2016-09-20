@@ -3,12 +3,12 @@ JAVA_FILES := $(wildcard *.java)
 default: all
 
 all:
-	javac -Xlint:unchecked menuItem/*.java filterCreators/*.java misc/*.java compare/*.java filters/*.java menu/*.java main/*.java exceptions/*.java
+	javac -Xlint:unchecked compare/*.java concessionaria/*.java editors/*.java exceptions/*.java filters/*.java main/*.java menu/*.java menu/menuItem/*.java menu/menuItem/filterCreators/*.java menu/menuItem/sortingCreators/*.java
 	
 clean:
-	$(RM) menuItem/*.class filterCreators/*.class misc/*.class compare/*.class filters/*.class menu/*.class main/*.class exceptions/*.class
+	$(RM) compare/*.class concessionaria/*.class editors/*.class exceptions/*.class filters/*.class main/*.class menu/*.class menu/menuItem/*.class menu/menuItem/filterCreators/*.class menu/menuItem/sortingCreators/*.class
 
 doc:
-	javadoc -d doc menuItem/*.java filterCreators/*.java misc/*.java compare/*.java filters/*.java menu/*.java main/*.java exceptions/*.java
+	javadoc -d doc compare/*.java concessionaria/*.java editors/*.java exceptions/*.java filters/*.java main/*.java menu/*.java menu/menuItem/*.java menu/menuItem/filterCreators/*.java menu/menuItem/sortingCreators/*.java
 
 .PHONY: clean concessionaria doc

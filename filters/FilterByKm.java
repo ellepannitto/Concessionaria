@@ -1,6 +1,6 @@
 package filters;
 
-import misc.*;
+import concessionaria.*;
 
 /**
  * Filtra le Auto in base ai chilometri percorsi dall'Auto.

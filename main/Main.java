@@ -3,10 +3,10 @@ package main;
 import java.util.*;
 
 import menu.*;
-import misc.*;
+import concessionaria.*;
 import filters.*;
-import filterCreators.*;
-import menuItem.*;
+import menu.menuItem.filterCreators.*;
+import menu.menuItem.*;
 import compare.*;
 
 public class Main
@@ -34,7 +34,7 @@ public class Main
 		menu_principale.add(new NextDelivery(c));
 		menu_principale.add(new Save(c));
 		menu_principale.add(new Load(c));
-		menu_principale.add(new menuItem.Exit());
+		menu_principale.add(new menu.menuItem.Exit());
 		
 		while (!esci)
 			Menu.show_menu(menu_principale, "Azioni possibili");

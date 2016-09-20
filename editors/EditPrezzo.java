@@ -2,8 +2,8 @@ package editors;
 
 import java.util.*;
 
-import menuItem.*;
-import misc.*;
+import menu.menuItem.*;
+import concessionaria.*;
 import menu.*;
 import exceptions.*;
 

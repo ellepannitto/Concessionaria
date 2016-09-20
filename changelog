@@ -1,8 +1,14 @@
+Concessionaria ver 0.7
+  
+  * new package structure
+  
+-- Ludovica Pannitto <ellepannitto@gmail.com> Tue, 20 Sep 2016 21:24 +0200
+
 Concessionaria ver 0.6.4
   
   * clear console after menu selection
   * javadoc warnings fixed
-  * callMe (CallMe) is now menuItem (MenuItem)
+  * callMe (CallMe) is now menu.menuItem (MenuItem)
 
 -- Ludovica Pannitto <ellepannitto@gmail.com> Tue, 20 Sep 2016 20:29 +0200
 

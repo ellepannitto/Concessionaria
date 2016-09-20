@@ -2,7 +2,7 @@ package filters;
 
 import java.util.*;
 
-import misc.*;
+import concessionaria.*;
 
 public class MultipleFiltererAuto implements Filterer<Auto>
 {
