@@ -34,9 +34,9 @@ public class FilterByTargaCreator implements MenuItem
 	 * crea un filtro per le auto in base alla targa, e lo aggiunge ad una lista di filtri
 	 * 
 	 * */
-	public void selected()
+	public void selected(Menu m)
 	{
-		String s = Menu.get_pattern("Inserisci pattern da ricercare");
+		String s = m.get_pattern("Inserisci pattern da ricercare");
 		
 		
 		FilterByTarga f = new FilterByTarga(s);

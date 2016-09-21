@@ -17,11 +17,11 @@ public class EditDeliveryDate implements MenuItem
 	}
 	
 	
-	public void selected()
+	public void selected(Menu m)
 	{
-		String t = Menu.get_string("targa");
+		String t = m.get_string("targa");
 		
-		GregorianCalendar d = Menu.get_data("data");
+		GregorianCalendar d = m.get_data("data");
 
 		Auto a = new Auto(t, null, 0, null, 0);
 
@@ -31,7 +31,7 @@ public class EditDeliveryDate implements MenuItem
 		}
 		catch (AutoException | DateException e)
 		{
-			Menu.show_error("Impossibile settare nuova data", e);
+			m.show_error("Impossibile settare nuova data", e);
 		}
 		
 	}

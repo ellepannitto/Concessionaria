@@ -7,7 +7,7 @@ import concessionaria.*;
 import menu.menuItem.*;
 import filters.*;
 
-public class Menu
+public class Menu implements MenuInterface
 {
 	private static Scanner s = new Scanner(System.in);
 	
@@ -24,7 +24,7 @@ public class Menu
 		System.out.flush();
 	}
 	
-	public static void show_menu(List<MenuItem> options, String intestazione)
+	public void show_menu(List<MenuItem> options, String intestazione)
 	{
 		boolean corretto = false;
 		
@@ -48,7 +48,7 @@ public class Menu
 				
 				MenuItem selected = options.get(n-1);
 				
-				selected.selected();
+				selected.selected(this);
 				
 				corretto = true;	
 			}
@@ -60,7 +60,7 @@ public class Menu
 	}
 	
 	
-	public static Auto get_auto ()
+	public Auto get_auto (Concessionaria concessionaria)
 	{
 		Auto ret;
 		
@@ -69,16 +69,12 @@ public class Menu
 		
 		String targa = get_string("Inserisci targa");
 		
-		//~ while (!Concessionaria.check_targa(targa) && !Concessionaria.check_in(targa))
-		//~ {
-			//~ targa = get_string("Formato targa non valido o auto già presente, inserisci di nuovo");
-		//~ }			
 		
-		while (!Concessionaria.check_targa(targa))
-		{	
-			targa = get_string("Formato targa non valido, inserisci di nuovo");
-		}
-					
+		while (!Concessionaria.check_targa(targa) || concessionaria.check_in(targa))
+		{		
+			targa = get_string("Formato targa non valido o auto già presente, inserisci di nuovo");
+		}			
+							
 		
 		String modello = get_string("inserisci modello");
 		String colore = get_string("inserisci colore");
@@ -122,7 +118,7 @@ public class Menu
 		return ret;
 	}
 	
-	public static String get_string(String message)
+	public String get_string(String message)
 	{
 		System.out.println(message);
 		
@@ -132,7 +128,7 @@ public class Menu
 		return ret;
 	}
 	
-	public static GregorianCalendar get_data(String message)
+	public GregorianCalendar get_data(String message)
 	{
 		System.out.println(message);
 		
@@ -162,7 +158,7 @@ public class Menu
 		return d;
 	}
 
-	public static Cliente get_cliente()
+	public Cliente get_cliente()
 	{
 		String nome = get_string("inserisci nome cliente");
 		String cognome = get_string("inserisci cognome cliente");
@@ -173,12 +169,12 @@ public class Menu
 		return c;
 	}
 	
-	public static void show_error (String error, Exception e)
+	public void show_error (String error, Exception e)
 	{
 		System.err.println(error+"-"+e);
 	}
 	
-	public static String get_pattern(String message)
+	public String get_pattern(String message)
 	{
 		System.out.println(message);
 		
@@ -188,7 +184,7 @@ public class Menu
 		return ret;
 	}
 
-	public static int get_int(String message)
+	public int get_int(String message)
 	{
 		boolean corretto = false;
 		int x = 0;
@@ -213,7 +209,7 @@ public class Menu
 		return x;
 	}
 
-	public static float get_float(String message)
+	public float get_float(String message)
 	{
 		DecimalFormatSymbols dfs = new DecimalFormatSymbols ();
 		System.out.println(message + " ( Separatore dei decimali: "+dfs.getDecimalSeparator()+" )");
@@ -238,12 +234,12 @@ public class Menu
 		return x;
 	}
 	
-	public static void show (String s)
+	public void show (String s)
 	{
 		System.out.println(s);
 	}
 	
-	public static void wait_input ()
+	public void wait_input ()
 	{
 		System.out.println("\npremi ENTER per continuare");
 		try

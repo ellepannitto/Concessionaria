@@ -5,6 +5,7 @@ import java.util.*;
 import concessionaria.*;
 import compare.*;
 import menu.menuItem.sortingCreators.*;
+import menu.*;
 
 /**
  * 
@@ -26,7 +27,7 @@ public class NoSortingCreator extends SortingCreator
 	 * 
 	 * 
 	 * */
-	public void selected()
+	public void selected(Menu m)
 	{
 
 		this.selettore.set_ordering_function (new NoSorting() );

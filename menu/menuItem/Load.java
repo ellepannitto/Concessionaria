@@ -35,9 +35,9 @@ public class Load implements MenuItem
 	 * Se invocata chiede all'utente in input il nome di un file F, poi carica la concessionaria dal file F
 	 * 
 	 * */
-	public void selected()
+	public void selected(Menu m)
 	{
-		String filename = Menu.get_string ("Inserisci nome del file");
+		String filename = m.get_string ("Inserisci nome del file");
 		
 		try
 		{
@@ -45,7 +45,7 @@ public class Load implements MenuItem
 		}
 		catch (IOException e)
 		{
-			Menu.show_error("Impossibile caricare la concessionaria", e);
+			m.show_error("Impossibile caricare la concessionaria", e);
 		}
 		
 		

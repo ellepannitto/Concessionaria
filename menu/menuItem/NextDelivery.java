@@ -35,18 +35,18 @@ public class NextDelivery implements MenuItem
 	 * 
 	 * 
 	 * */
-	public void selected()
+	public void selected(Menu m)
 	{
 		
 		try
 		{
 			Auto a = c.getNextDelivery();
-			Menu.show(a.toString());
-			Menu.wait_input();
+			m.show(a.toString());
+			m.wait_input();
 		}
 		catch (AutoException e)
 		{
-			Menu.show_error("Impossibile mostrare la prossima consegna", e);
+			m.show_error("Impossibile mostrare la prossima consegna", e);
 		}
 			
 	}

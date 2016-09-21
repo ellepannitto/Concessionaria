@@ -19,6 +19,7 @@ import menu.*;
 public class Concessionaria 
 {
 	private Vector<Auto> archivio = new Vector<Auto>();
+	private Menu m;
 	
 	//~ private Vector<Cliente> clienti_registrati;
 
@@ -30,20 +31,27 @@ public class Concessionaria
 		;
 	}
 
+	public Concessionaria (Menu m)
+	{
+		this.m = m;
+	}
+
 	/**
 	 * Inizializza una concessionaria a partire da un file
 	 * */
-	public Concessionaria (String filename)
+	public Concessionaria (Menu m, String filename)
 	{
+		this(m);
+		
 		try
 		{
 			load(filename);
 		}
 		catch (IOException e)
 		{
-			Menu.show_error("Impossibile caricare l'archivio", e);
-			Menu.show ("E' stata creata una nuova concessionaria (vuota)");
-			Menu.wait_input();
+			this.m.show_error("Impossibile caricare l'archivio", e);
+			this.m.show ("E' stata creata una nuova concessionaria (vuota)");
+			this.m.wait_input();
 		}
 	}
 
@@ -175,7 +183,7 @@ public class Concessionaria
 		
 		int y = now.get(Calendar.YEAR);
 		
-		return anno < y && anno > 1900;	
+		return anno < y+1 && anno > 1900;	
 	}
 	
 	public static boolean check_prezzo (float p)
@@ -183,13 +191,15 @@ public class Concessionaria
 		return p > 0.01 ;	
 	}
 	
-	//~ public static boolean check_in (String s)
-	//~ {
-		//~ Auto a = new Auto(s, null, 0, null, 0);
+	public boolean check_in (String s)
+	{
 		
-		//~ return archivio.contains(a);
+		Auto a = new Auto(s, null, 0, null, 0);
+		System.out.println(archivio.contains(a));
 		
-	//~ }
+		return archivio.contains(a);
+		
+	}
 	
 	
 	/**
@@ -408,4 +418,6 @@ public class Concessionaria
 			throw new IOException("Errore durante il caricamento dal file "+filename);
 		}
 	}
+	
+	
 }

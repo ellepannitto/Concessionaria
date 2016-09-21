@@ -14,18 +14,15 @@ public class Main
 	public static boolean esci = false;
 	
 	public static void main (String[] args)
-	{
-		Concessionaria c = new Concessionaria();
+	{		
+		Menu menu = new Menu();
+		
+		Concessionaria c = new Concessionaria(menu);
 		
 		if (args.length > 0)
 		{
-			c = new Concessionaria(args[0]);
+			c = new Concessionaria(menu, args[0]);
 		}
-		
-		
-		
-		Menu menu = new Menu();
-		
 		
 		List<MenuItem> menu_principale = new ArrayList<MenuItem>();
 		
@@ -39,7 +36,7 @@ public class Main
 		menu_principale.add(new menu.menuItem.Exit());
 		
 		while (!esci)
-			Menu.show_menu(menu_principale, "Azioni possibili");
+			menu.show_menu(menu_principale, "Azioni possibili");
 	}
 	
 	

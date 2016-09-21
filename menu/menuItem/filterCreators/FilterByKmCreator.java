@@ -34,10 +34,10 @@ public class FilterByKmCreator implements MenuItem
 	 * crea un filtro per le auto in base ai km percorsi, e lo aggiunge alla lista di filtri
 	 * 
 	 * */
-	public void selected()
+	public void selected(Menu m)
 	{
-		int min = Menu.get_int("Inserisci minimo (-1 se non richiesto)");
-		int max = Menu.get_int("inserisci massimo (-1 se non richiesto)");
+		int min = m.get_int("Inserisci minimo (-1 se non richiesto)");
+		int max = m.get_int("inserisci massimo (-1 se non richiesto)");
 		
 		//~ check_string(s);
 		

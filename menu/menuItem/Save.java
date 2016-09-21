@@ -35,9 +35,9 @@ public class Save implements MenuItem
 	 * Chiede all'utente in input il nome di un file F, poi salva l'archivio dellla concessionaria sul file F.
 	 * 
 	 * */
-	public void selected()
+	public void selected(Menu m)
 	{
-		String filename = Menu.get_string ("Inserisci nome del file");
+		String filename = m.get_string ("Inserisci nome del file");
 		
 		
 		try
@@ -46,7 +46,7 @@ public class Save implements MenuItem
 		}
 		catch (IOException e)
 		{
-			Menu.show_error("Impossibile salvare l'archivio su file", e);
+			m.show_error("Impossibile salvare l'archivio su file", e);
 		}
 		
 	}

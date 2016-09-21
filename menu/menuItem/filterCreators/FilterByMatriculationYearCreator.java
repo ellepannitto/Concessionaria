@@ -34,10 +34,10 @@ public class FilterByMatriculationYearCreator implements MenuItem
 	 * crea un filtro per le auto in base all'anno di immatricolazione percorsi, e lo aggiunge alla lista di filtri
 	 * 
 	 * */
-	public void selected()
+	public void selected(Menu m)
 	{
-		int min = Menu.get_int("Inserisci minimo (-1 se non richiesto) ");
-		int max = Menu.get_int("Inserisci massimo (-1 se non richiesto) ");
+		int min = m.get_int("Inserisci minimo (-1 se non richiesto) ");
+		int max = m.get_int("Inserisci massimo (-1 se non richiesto) ");
 		
 		FilterByMatriculationYear f = new FilterByMatriculationYear(min, max);
 		

@@ -35,9 +35,9 @@ public class FilterByTypeCreator implements MenuItem
 	 * crea un filtro per le auto in base al tipo, e lo aggiunge ad una lista di filtri
 	 * 
 	 * */
-	public void selected()
+	public void selected(Menu m)
 	{
-		int new_wanted = Menu.get_int("Inserisci 0 per auto usate e 1(o maggiore) per auto nuove");
+		int new_wanted = m.get_int("Inserisci 0 per auto usate e 1(o maggiore) per auto nuove");
 		
 		boolean n = new_wanted==0 ? false : true;
 		

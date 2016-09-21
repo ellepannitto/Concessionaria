@@ -17,11 +17,11 @@ public class EditPrezzo implements MenuItem
 	}
 	
 	
-	public void selected()
+	public void selected(Menu m)
 	{
-		String t = Menu.get_string("targa");
+		String t = m.get_string("targa");
 		
-		float prezzo = Menu.get_float("prezzo");
+		float prezzo = m.get_float("prezzo");
 
 		Auto a = new Auto(t, null, 0, null, 0);
 
@@ -31,7 +31,7 @@ public class EditPrezzo implements MenuItem
 		}
 		catch (AutoException e)
 		{
-			Menu.show_error ("Impossibile modificare il colore", e);
+			m.show_error ("Impossibile modificare il colore", e);
 		}
 		
 	}

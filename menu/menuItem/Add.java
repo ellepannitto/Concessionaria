@@ -32,9 +32,9 @@ public class Add implements MenuItem
 	 * Chiede in input all'utente i dati di un'auto A, poi aggiunge A alla concessionaria
 	 * 
 	 * */
-	public void selected()
+	public void selected(Menu m)
 	{
-		Auto a = Menu.get_auto();
+		Auto a = m.get_auto(this.c);
 
 		try
 		{
@@ -42,7 +42,7 @@ public class Add implements MenuItem
 		}
 		catch (AutoException e)
 		{
-			Menu.show_error("Impossibile aggiungere auto", e);
+			m.show_error("Impossibile aggiungere auto", e);
 		}
 		
 	}

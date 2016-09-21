@@ -28,9 +28,9 @@ public class Remove implements MenuItem
 	/**
 	 * rimuove un auto dalla concessionaria
 	 * */
-	public void selected()
+	public void selected(Menu m)
 	{
-		String targa = Menu.get_string ("Inserisci la targa dell'auto da rimuovere");
+		String targa = m.get_string ("Inserisci la targa dell'auto da rimuovere");
 		Auto a = new Auto ( targa, null, 0, null, 0 );
 
 		try
@@ -39,7 +39,7 @@ public class Remove implements MenuItem
 		}
 		catch (AutoException e)
 		{
-			Menu.show_error("Impossibile rimuovere auto dall'archivio", e);
+			m.show_error("Impossibile rimuovere auto dall'archivio", e);
 		}
 
 	}

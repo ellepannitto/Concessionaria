@@ -17,11 +17,11 @@ public class EditColore implements MenuItem
 	}
 	
 	
-	public void selected()
+	public void selected(Menu m)
 	{
-		String t = Menu.get_string("targa");
+		String t = m.get_string("targa");
 		
-		String col = Menu.get_string("nuovo colore");
+		String col = m.get_string("nuovo colore");
 
 		Auto a = new Auto(t, null, 0, null, 0);
 
@@ -31,7 +31,7 @@ public class EditColore implements MenuItem
 		}
 		catch (AutoException e)
 		{
-			Menu.show_error("Impossibile modificare il colore", e);
+			m.show_error("Impossibile modificare il colore", e);
 		}
 		
 	}

@@ -19,7 +19,7 @@ public class Exit implements MenuItem
 	 * se invocata, comunica al programma che deve terminare
 	 * 
 	 * */
-	public void selected()
+	public void selected(Menu m)
 	{
 		Main.esci = true;
 	}

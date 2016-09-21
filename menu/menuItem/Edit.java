@@ -36,7 +36,7 @@ public class Edit implements MenuItem
 	 * 
 	 * 
 	 * */
-	public void selected()
+	public void selected(Menu m)
 	{
 		
 		List<MenuItem> possible_edits = new ArrayList<MenuItem>();
@@ -46,10 +46,7 @@ public class Edit implements MenuItem
 		possible_edits.add (new EditPrezzo (c));
 		
 		
-		Menu.show_menu (possible_edits, "Selezionare tipo di modifica:");
-		
-		
-		
+		m.show_menu (possible_edits, "Selezionare tipo di modifica:");
 	}
 	
 	/**

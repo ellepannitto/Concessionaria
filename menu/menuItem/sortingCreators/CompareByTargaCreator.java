@@ -5,6 +5,7 @@ import java.util.*;
 import concessionaria.*;
 import compare.*;
 import menu.menuItem.sortingCreators.*;
+import menu.*;
 
 /**
  * 
@@ -29,9 +30,8 @@ public class CompareByTargaCreator extends SortingCreator
      * Crea una funzione di ordinamento che ordinerà le auto secondo la targa, e la setta come selezionata in un oggetto di classe SortingSelector 
 	 * 
 	 * */
-	public void selected()
+	public void selected(Menu m)
 	{
-
 		this.selettore.set_ordering_function (new CompareByTarga() );
 		
 	}

@@ -37,7 +37,7 @@ public class Exit implements MenuItem
 	 * Infomra l'oggetto che è stato chiamato
 	 * 
 	 * */
-	public void selected()
+	public void selected(Menu m)
 	{			
 		chiamato = true;
 		

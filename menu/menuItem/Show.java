@@ -37,7 +37,7 @@ public class Show implements MenuItem
 	 * Verranno poi mostrate solo le auto che rispettano i filtri scelti, ordinate con la funzione di ordinamento scelta.
 	 * 
 	 * */
-	public void selected()
+	public void selected(Menu m)
 	{
 		List<MenuItem> filters_to_show = new ArrayList<MenuItem>();
 		
@@ -52,7 +52,7 @@ public class Show implements MenuItem
 		filters_to_show.add(e);
 		
 		while (!e.got_called())
-			Menu.show_menu(filters_to_show, "Imposta i filtri di ricerca");
+			m.show_menu(filters_to_show, "Imposta i filtri di ricerca");
 		
 		MultipleFiltererAuto filtro = new MultipleFiltererAuto(filters);
 		
@@ -66,7 +66,7 @@ public class Show implements MenuItem
 		
 		
 		List<MenuItem> orderings_to_show = ss.get_list();
-		Menu.show_menu ( orderings_to_show , "Scegli il tipo di ordinamento" );
+		m.show_menu ( orderings_to_show , "Scegli il tipo di ordinamento" );
 		
 		Comparator<Auto> funzione_ordinamento_scelta = ss.get_ordering();
 		
@@ -74,18 +74,15 @@ public class Show implements MenuItem
 		
 		if (lista.length == 0)
 		{
-			Menu.show ("Nessun risultato");
-		
+			m.show ("Nessun risultato");
 		}
 		
 		for (Auto a: lista)
 		{
-			Menu.show(a.toString());
+			m.show(a.toString());
 		}
 		
-		Menu.wait_input();
-		
-		
+		m.wait_input();
 	}
 	
 	/**

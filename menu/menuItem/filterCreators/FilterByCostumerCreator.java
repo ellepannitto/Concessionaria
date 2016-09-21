@@ -34,9 +34,9 @@ public class FilterByCostumerCreator implements MenuItem
 	 * Crea un filtro per le auto in base ai dati del cliente, e lo aggiunge ad una lista di filtri
 	 * 
 	 * */
-	public void selected()
+	public void selected(Menu m)
 	{
-		String s = Menu.get_pattern("Inserisci pattern da ricercare");
+		String s = m.get_pattern("Inserisci pattern da ricercare");
 		
 		FilterByCustomer f = new FilterByCustomer(s);
 		
