@@ -46,7 +46,7 @@ public class NextDelivery implements MenuItem
 		}
 		catch (AutoException e)
 		{
-			System.err.println("Impossibile mostrare la prossima consegna - "+e);
+			Menu.show_error("Impossibile mostrare la prossima consegna", e);
 		}
 			
 	}

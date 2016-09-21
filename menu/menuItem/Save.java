@@ -46,7 +46,7 @@ public class Save implements MenuItem
 		}
 		catch (IOException e)
 		{
-			System.err.println("Impossibile salvare l'archivio su file - "+e);
+			Menu.show_error("Impossibile salvare l'archivio su file", e);
 		}
 		
 	}

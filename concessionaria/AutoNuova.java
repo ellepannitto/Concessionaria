@@ -40,7 +40,7 @@ public class AutoNuova extends Auto
 		
 		String date = new SimpleDateFormat("dd/MM/yyyy").format(this.data_di_consegna.getTime());
 		String autonuova = String.format("Cliente: %s\tData di consegna: %s\n", this.cliente.toString(), date);
-		String p = String.format("Prezzo: %.2f", this.prezzo_di_vendita);
+		String p = String.format("Cat: Nuova\tPrezzo: %.2f", this.prezzo_di_vendita);
 		
 		return auto+autonuova+p;
 	}

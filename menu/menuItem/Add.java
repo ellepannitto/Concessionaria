@@ -42,7 +42,7 @@ public class Add implements MenuItem
 		}
 		catch (AutoException e)
 		{
-			System.err.println("Impossibile aggiungere auto - "+e);
+			Menu.show_error("Impossibile aggiungere auto", e);
 		}
 		
 	}

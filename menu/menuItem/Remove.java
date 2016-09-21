@@ -39,7 +39,7 @@ public class Remove implements MenuItem
 		}
 		catch (AutoException e)
 		{
-			System.err.println ("Impossibile rimuovere auto dall'archivio - "+e);
+			Menu.show_error("Impossibile rimuovere auto dall'archivio", e);
 		}
 
 	}

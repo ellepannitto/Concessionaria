@@ -17,7 +17,7 @@ public class Menu
 			s.nextLine ();
 	}
 	
-	public static void flush_console()
+	private static void flush_console()
 	{
 		//Per pulire la console su Linux
 		System.out.println("\033[H\033[2J");
@@ -69,24 +69,39 @@ public class Menu
 		
 		String targa = get_string("Inserisci targa");
 		
+		//~ while (!Concessionaria.check_targa(targa) && !Concessionaria.check_in(targa))
+		//~ {
+			//~ targa = get_string("Formato targa non valido o auto già presente, inserisci di nuovo");
+		//~ }			
+		
 		while (!Concessionaria.check_targa(targa))
-		{
+		{	
 			targa = get_string("Formato targa non valido, inserisci di nuovo");
 		}
-		
-		
+					
 		
 		String modello = get_string("inserisci modello");
 		String colore = get_string("inserisci colore");
 		
 		int cilindrata = get_int("inserisci cilindrata");
+		
 		float prezzo = get_float("inserisci prezzo");
 		
+		while (!Concessionaria.check_prezzo(prezzo))
+		{
+			prezzo = get_float ("Il prezzo inserito non è valido, inserisci di nuovo");
+		}
 		
 		
 		if (x==0)
 		{
 			int anno = get_int("inserisci anno di immatricolazione");
+			
+			while(!Concessionaria.check_anno_immatricolazione(anno))
+			{
+				anno = get_int ("L'anno inserito non è valido come anno di immatricolazione, inserisci di nuovo");
+			}
+			
 			int chilometri = get_int("inserisci chilometri percorsi");
 			
 			ret = new AutoUsata(targa, modello, cilindrata, colore, prezzo, anno, chilometri);
@@ -111,8 +126,8 @@ public class Menu
 	{
 		System.out.println(message);
 		
-		String ret = s.next();
-		clear_input_buffer ();
+		String ret = s.nextLine();
+		//~ clear_input_buffer ();
 		
 		return ret;
 	}
@@ -158,9 +173,9 @@ public class Menu
 		return c;
 	}
 	
-	public static void show_error (String error)
+	public static void show_error (String error, Exception e)
 	{
-		System.out.println(error);
+		System.err.println(error+"-"+e);
 	}
 	
 	public static String get_pattern(String message)

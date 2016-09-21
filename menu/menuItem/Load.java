@@ -45,7 +45,7 @@ public class Load implements MenuItem
 		}
 		catch (IOException e)
 		{
-			System.err.println ("Impossibile caricare la concessionaria - "+e);
+			Menu.show_error("Impossibile caricare la concessionaria", e);
 		}
 		
 		

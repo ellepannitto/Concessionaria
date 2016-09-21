@@ -41,7 +41,7 @@ public class Concessionaria
 		}
 		catch (IOException e)
 		{
-			System.err.println("Impossibile caricare l'archivio - "+e);
+			Menu.show_error("Impossibile caricare l'archivio", e);
 			Menu.show ("E' stata creata una nuova concessionaria (vuota)");
 			Menu.wait_input();
 		}
@@ -168,6 +168,28 @@ public class Concessionaria
 
 		return diff > 0;	
 	}
+	
+	public static boolean check_anno_immatricolazione (int anno)
+	{
+		GregorianCalendar now = new GregorianCalendar();
+		
+		int y = now.get(Calendar.YEAR);
+		
+		return anno < y && anno > 1900;	
+	}
+	
+	public static boolean check_prezzo (float p)
+	{
+		return p > 0.01 ;	
+	}
+	
+	//~ public static boolean check_in (String s)
+	//~ {
+		//~ Auto a = new Auto(s, null, 0, null, 0);
+		
+		//~ return archivio.contains(a);
+		
+	//~ }
 	
 	
 	/**

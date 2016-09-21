@@ -1,4 +1,4 @@
-package editors;
+package menu.menuItems.editors;
 
 import java.util.*;
 
@@ -7,11 +7,11 @@ import concessionaria.*;
 import menu.*;
 import exceptions.*;
 
-public class EditPrezzo implements MenuItem
+public class EditDeliveryDate implements MenuItem
 {
 	private Concessionaria concessionaria;
 	
-	public EditPrezzo (Concessionaria c)
+	public EditDeliveryDate (Concessionaria c)
 	{
 		this.concessionaria = c;
 	}
@@ -21,23 +21,23 @@ public class EditPrezzo implements MenuItem
 	{
 		String t = Menu.get_string("targa");
 		
-		float prezzo = Menu.get_float("prezzo");
+		GregorianCalendar d = Menu.get_data("data");
 
 		Auto a = new Auto(t, null, 0, null, 0);
 
 		try
 		{
-			concessionaria.setNewPrice(a, prezzo);
+			concessionaria.setNewDeliveryDate(a, d);
 		}
-		catch (AutoException e)
+		catch (AutoException | DateException e)
 		{
-			System.err.println ("Impossibile modificare il colore - "+e);
+			Menu.show_error("Impossibile settare nuova data", e);
 		}
 		
 	}
 	
 	public String getDescrizione()
 	{
-		return "Modifica il prezzo";
+		return "Modifica una data di consegna";
 	}
 }

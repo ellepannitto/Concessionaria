@@ -95,7 +95,7 @@ public class Auto implements Serializable
 	 * */
 	public String toString()
 	{
-		String rigauno = String.format("Cat: Nuova\tTarga: %s\n", this.targa);
+		String rigauno = String.format("Targa: %s\n", this.targa);
 		String rigadue = String.format("Desc: %s %s, %d cc\n", this.modello, this.colore, this.cilindrata);
 		
 		return rigauno+rigadue;

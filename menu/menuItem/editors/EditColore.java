@@ -1,4 +1,4 @@
-package editors;
+package menu.menuItems.editors;
 
 import java.util.*;
 
@@ -31,7 +31,7 @@ public class EditColore implements MenuItem
 		}
 		catch (AutoException e)
 		{
-			System.err.println ("Impossibile modificare il colore - "+e);
+			Menu.show_error("Impossibile modificare il colore", e);
 		}
 		
 	}
