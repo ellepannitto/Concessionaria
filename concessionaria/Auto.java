@@ -9,7 +9,7 @@ import java.io.Serializable;
  * */
 public class Auto implements Serializable
 {
-	protected String targa;
+	protected final String targa;
 	protected String modello;
 	protected int cilindrata;
 	protected String colore;
@@ -26,18 +26,28 @@ public class Auto implements Serializable
 	 * */
 	public Auto (String targa, String modello, int cilindrata, String colore, float prezzo)
 	{
-		this.targa = targa;
+		this.targa = targa.toLowerCase();
 		this.modello = modello;
 		this.cilindrata = cilindrata;
 		this.colore = colore;
 		this.prezzo_di_vendita = prezzo;
 	}
 	
+	/**
+	 * imposta il nuovo colore a un'auto
+	 * 
+	 * @param c stringa che descrive il colore
+	 * */
 	public void setColor (String c)
 	{
 		this.colore = c;
 	}
 
+	/**
+	 * imposta il nuovo prezzo a un'auto
+	 * 
+	 * @param p float che rappresenta il prezzo
+	 * */
 	public void setPrezzo (float p)
 	{
 		this.prezzo_di_vendita = p;
@@ -95,7 +105,7 @@ public class Auto implements Serializable
 	 * */
 	public String toString()
 	{
-		String rigauno = String.format("Targa: %s\n", this.targa);
+		String rigauno = String.format("Targa: %s\n", this.targa.toUpperCase());
 		String rigadue = String.format("Desc: %s %s, %d cc\n", this.modello, this.colore, this.cilindrata);
 		
 		return rigauno+rigadue;

@@ -11,6 +11,8 @@ import concessionaria.*;
 public class NoSorting implements Comparator<Auto>
 {
 	/**
+	 * @param a un'auto
+	 * @param b un'auto
 	 * 
 	 * @return 0 in ogni caso
 	 * 

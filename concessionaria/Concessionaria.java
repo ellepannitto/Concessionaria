@@ -110,6 +110,14 @@ public class Concessionaria
 		return sorted_list;
 	}
 	
+	/**
+	 * 
+	 * Fornisce la lista di auto presenti nell'archivio.
+	 * 
+	 * 
+	 * @return lista di auto
+	 * 
+	 * */
 	public Auto[] list_autos ()
 	{
 		Auto[] list = archivio.toArray( new Auto[archivio.size()] );
@@ -184,6 +192,14 @@ public class Concessionaria
 		return diff > 0;	
 	}
 	
+	/**
+	 * Controlla che il numero sia valido come anno di immatricolazione.
+	 * 
+	 * @param anno intero da controllare
+	 * 
+	 * @return true se l'intero è compreso tra 1900 e l'anno corrente
+	 * @return false altrimenti
+	 * */
 	public static boolean check_anno_immatricolazione (int anno)
 	{
 		GregorianCalendar now = new GregorianCalendar();
@@ -193,11 +209,27 @@ public class Concessionaria
 		return anno < y+1 && anno > 1900;	
 	}
 	
+	/**
+	 * Controlla che il numero sia valido come prezzo
+	 * 
+	 * @param p prezzo (float)
+	 * 
+	 * @return true se p>=0.01
+	 * */
 	public static boolean check_prezzo (float p)
 	{
-		return p > 0.01 ;	
+		return p >= 0.01 ;	
 	}
 	
+	
+	/**
+	 * Controlla che una targa corrisponda ad un'auto presente nell'archivio.
+	 * 
+	 * @param s stringa che rappresenta una targa
+	 * 
+	 * @return true se c'è nell'archivio un'auto con s come targa
+	 * @return false altrimenti
+	 * */
 	public boolean check_in (String s)
 	{
 		

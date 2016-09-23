@@ -7,16 +7,34 @@ import concessionaria.*;
 import menu.*;
 import exceptions.*;
 
+
+/**
+ * 
+ * Una voce del menù che consente di modificare la data di consegna di un'automobile
+ * 
+ * 
+ * */
 public class EditDeliveryDate implements MenuItem
 {
+	// la concessionaria della quale modificare l'automobile
 	private Concessionaria concessionaria;
 	
+	/**
+	 * 
+	 * inizializza un nuovo oggetto, data la concessionaria della quale modificare l'automobile
+	 * 
+	 * */	
 	public EditDeliveryDate (Concessionaria c)
 	{
 		this.concessionaria = c;
 	}
 	
-	
+	/**
+	 * Chiede in input la targa e una nuova data e assegna quella data all'auto con la targa cercata.
+	 * 
+	 * @param m Menu
+	 * 
+	 * */
 	public void selected(Menu m)
 	{
 		Auto[] lista = concessionaria.list_autos();
@@ -47,6 +65,11 @@ public class EditDeliveryDate implements MenuItem
 		
 	}
 	
+	/**
+	 * 
+	 * Restituisce una descrizione per la voce del menù
+	 * 
+	 * */
 	public String getDescrizione()
 	{
 		return "Modifica una data di consegna";

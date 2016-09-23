@@ -60,7 +60,11 @@ public class EditPrezzo implements MenuItem
 		m.wait_input ();
 	}
 	
-	public String getDescrizione()
+	/**
+	 * 
+	 * Restituisce una descrizione per la voce del menù
+	 * 
+	 * */	public String getDescrizione()
 	{
 		return "Modifica il prezzo";
 	}

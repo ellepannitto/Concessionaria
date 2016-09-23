@@ -162,9 +162,7 @@ public class Menu implements MenuInterface
 	{
 		String nome = get_string("inserisci nome cliente");
 		String cognome = get_string("inserisci cognome cliente");
-		String cf = get_string("inserisci codice fiscale cliente");
-
-		Cliente c = new Cliente(nome, cognome, cf);
+		Cliente c = new Cliente(nome, cognome);
 
 		return c;
 	}

@@ -7,6 +7,10 @@ import concessionaria.*;
 import menu.menuItem.*;
 import filters.*;
 
+
+/**
+ * Interfaccia le cui implementazioni gestiscono un menu, e l'output e l'input di valori di diverso tipo
+ * */
 public interface MenuInterface
 {
 	

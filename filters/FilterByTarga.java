@@ -7,7 +7,7 @@ import java.lang.*;
 import concessionaria.*;
 
 /**
- * Filtra le Auto in base ai dati anagrafici del Cliente.
+ * Filtra le Auto in base alla targa dell'auto.
  * 
  * */ 
 public class FilterByTarga implements Filterer<Auto>
@@ -25,7 +25,7 @@ public class FilterByTarga implements Filterer<Auto>
 	}
 	
 	/**
-	 * @return true se l'Auto rispetta le condizioni del filtro, ovvero se il cognome (e il nome) del Cliente contiene (contengono) o matcha (matchano) la sottostringa settata dal costruttore.
+	 * @return true se l'Auto rispetta le condizioni del filtro, ovvero se la targa matcha il pattern settata dal costruttore.
 	 * */
 	public boolean filter (Auto a)
 	{

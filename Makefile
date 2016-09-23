@@ -14,4 +14,4 @@ doc:
 edit:
 	geany compare/*.java concessionaria/*.java exceptions/*.java filters/*.java main/*.java menu/*.java menu/menuItem/*.java menu/menuItem/filterCreators/*.java menu/menuItem/sortingCreators/*.java menu/menuItem/editors/*.java
 
-.PHONY: clean concessionaria doc
+.PHONY: clean concessionaria doc edit

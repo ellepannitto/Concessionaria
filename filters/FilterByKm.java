@@ -32,11 +32,10 @@ public class FilterByKm implements Filterer<Auto>
 	 * */
 	public boolean filter (Auto a)
 	{
-		boolean ret = false;
+		boolean ret = true;
 		
 		if (a instanceof AutoUsata)
 		{
-			ret = true;
 			
 			int km = ((AutoUsata)a).getKilometers();
 			

@@ -11,7 +11,7 @@ public class Cliente implements Serializable
 {
 	private String nome;
 	private String cognome;
-	private String cf;
+	private final String cf;
 	
 	/**
 	 * Inizializza un cliente a partire dai dati anagrafici.
@@ -21,11 +21,20 @@ public class Cliente implements Serializable
 	 * @param cf codice fiscale del cliente
 	 * 
 	 * */
-	public Cliente (String n, String c, String cf)
+	public Cliente (String n, String c)
 	{
 		this.nome = n;
 		this.cognome = c;
-		this.cf = cf;
+		this.cf = calcola_codice(cognome, nome);
+	}
+	
+	/**
+	 * Da implementare: calcolo del codice fiscale.
+	 * Al momento restituisce cognome e nome concatenati
+	 * */
+	private String calcola_codice (String c, String n)
+	{
+		return c+n;
 	}
 	
 	/**

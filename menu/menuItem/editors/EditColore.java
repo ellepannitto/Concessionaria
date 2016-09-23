@@ -7,16 +7,35 @@ import concessionaria.*;
 import menu.*;
 import exceptions.*;
 
+/**
+ * 
+ * Una voce del menù che consente di modificare il colore di un'automobile
+ * 
+ * */
 public class EditColore implements MenuItem
 {
+	// la concessionaria della quale modificare l'automobile
 	private Concessionaria concessionaria;
 	
+	/**
+	 * 
+	 * inizializza un nuovo oggetto, data la concessionaria della quale modificare l'automobile
+	 * 
+	 * */
 	public EditColore (Concessionaria c)
 	{
 		this.concessionaria = c;
 	}
 	
 	
+	/**
+	 * 
+	 * 
+	 * Chiede in input una targa e un colore, poi lo assegna all'auto con quella targa. 
+	 * 
+	 * @param m un menù per gestire l'input e output
+	 * 
+	 * */
 	public void selected(Menu m)
 	{
 		Auto[] lista = concessionaria.list_autos();
@@ -48,6 +67,11 @@ public class EditColore implements MenuItem
 		
 	}
 	
+	/**
+	 * 
+	 * Restituisce una descrizione per la voce del menù
+	 * 
+	 * */
 	public String getDescrizione()
 	{
 		return "Modifica il colore";

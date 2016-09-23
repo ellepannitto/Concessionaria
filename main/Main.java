@@ -9,6 +9,9 @@ import menu.menuItem.filterCreators.*;
 import menu.menuItem.*;
 import compare.*;
 
+/**
+ * Classe principale che avvia il programma
+ * */
 public class Main
 {
 	public static boolean esci = false;
@@ -36,8 +39,6 @@ public class Main
 		menu_principale.add(new menu.menuItem.Exit());
 		
 		while (!esci)
-			menu.show_menu(menu_principale, "Azioni possibili");
+			menu.show_menu(menu_principale, "**CONCESSIONARIA**\nAzioni possibili");
 	}
-	
-	
 }
