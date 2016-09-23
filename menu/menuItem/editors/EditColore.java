@@ -55,7 +55,7 @@ public class EditColore implements MenuItem
 		try
 		{
 			concessionaria.setNewColor(a, col);
-			m.show("Modifica registrata.\n");
+			m.show("Modifica registrata.");
 			
 		}
 		catch (AutoException e)

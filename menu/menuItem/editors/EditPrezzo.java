@@ -49,7 +49,7 @@ public class EditPrezzo implements MenuItem
 		{
 			concessionaria.setNewPrice(a, prezzo);
 			
-			m.show("Modifica registrata.\n"+a.toString());
+			m.show("Modifica registrata.");
 			
 		}
 		catch (AutoException e)

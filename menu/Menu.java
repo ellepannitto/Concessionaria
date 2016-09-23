@@ -32,6 +32,7 @@ public class Menu implements MenuInterface
 		
 		while (!corretto)
 		{
+			
 			System.out.println (intestazione);
 			
 			for (int i=0; i<options.size(); i++)
@@ -54,7 +55,8 @@ public class Menu implements MenuInterface
 			}
 			catch(Exception e)
 			{
-				System.err.println("Scelta non valida");
+				flush_console();
+				System.err.println("Scelta non valida\n");
 			}
 		}
 	}

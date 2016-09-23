@@ -54,7 +54,7 @@ public class EditDeliveryDate implements MenuItem
 		try
 		{
 			concessionaria.setNewDeliveryDate(a, d);
-			m.show("Modifica registrata.\n");
+			m.show("Modifica registrata.");
 		}
 		catch (AutoException | DateException e)
 		{
