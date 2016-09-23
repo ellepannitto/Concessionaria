@@ -5,7 +5,7 @@ import java.util.*;
 import concessionaria.*;
 import menu.*;
 import exceptions.*;
-import menu.menuItems.editors.*;
+import menu.menuItem.editors.*;
 
 /**
  * 

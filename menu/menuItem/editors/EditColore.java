@@ -1,4 +1,4 @@
-package menu.menuItems.editors;
+package menu.menuItem.editors;
 
 import java.util.*;
 
@@ -21,6 +21,7 @@ public class EditColore implements MenuItem
 	{
 		String t = m.get_string("targa");
 		
+
 		String col = m.get_string("nuovo colore");
 
 		Auto a = new Auto(t, null, 0, null, 0);
@@ -28,11 +29,15 @@ public class EditColore implements MenuItem
 		try
 		{
 			concessionaria.setNewColor(a, col);
+			m.show("Modifica registrata.\n"+a.toString());
+			
 		}
 		catch (AutoException e)
 		{
 			m.show_error("Impossibile modificare il colore", e);
 		}
+		
+		m.wait_input ();
 		
 	}
 	

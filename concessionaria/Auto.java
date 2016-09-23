@@ -1,7 +1,7 @@
 package concessionaria;
 
-import java.util.*;
-import java.io.*;
+
+import java.io.Serializable;
 
 /**
  * Memorizza i dati di un'auto.
@@ -99,6 +99,8 @@ public class Auto implements Serializable
 		String rigadue = String.format("Desc: %s %s, %d cc\n", this.modello, this.colore, this.cilindrata);
 		
 		return rigauno+rigadue;
+
+
 	}
 	
 }

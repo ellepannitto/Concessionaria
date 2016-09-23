@@ -1,4 +1,4 @@
-package menu.menuItems.editors;
+package menu.menuItem.editors;
 
 import java.util.*;
 
@@ -21,6 +21,7 @@ public class EditPrezzo implements MenuItem
 	{
 		String t = m.get_string("targa");
 		
+		
 		float prezzo = m.get_float("prezzo");
 
 		Auto a = new Auto(t, null, 0, null, 0);
@@ -28,12 +29,16 @@ public class EditPrezzo implements MenuItem
 		try
 		{
 			concessionaria.setNewPrice(a, prezzo);
+			
+			m.show("Modifica registrata.\n"+a.toString());
+			
 		}
 		catch (AutoException e)
 		{
 			m.show_error ("Impossibile modificare il colore", e);
 		}
 		
+		m.wait_input ();
 	}
 	
 	public String getDescrizione()

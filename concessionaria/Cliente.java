@@ -1,7 +1,7 @@
 package concessionaria;
 
-import java.io.*;
 
+import java.io.Serializable;
 
 /**
  * Memorizza i dati di un cliente.

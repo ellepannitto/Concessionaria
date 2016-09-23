@@ -42,12 +42,14 @@ public class Load implements MenuItem
 		try
 		{
 			c.load(filename);
+			m.show ("Archivio caricato correttamente. Ci sono "+c.size()+" auto nell'archivio.");
 		}
 		catch (IOException e)
 		{
 			m.show_error("Impossibile caricare la concessionaria", e);
 		}
 		
+		m.wait_input();
 		
 	}
 	

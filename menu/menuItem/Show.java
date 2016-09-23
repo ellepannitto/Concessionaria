@@ -80,6 +80,7 @@ public class Show implements MenuItem
 		for (Auto a: lista)
 		{
 			m.show(a.toString());
+			m.show ("\n");
 		}
 		
 		m.wait_input();

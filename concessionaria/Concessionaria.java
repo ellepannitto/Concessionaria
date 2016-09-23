@@ -194,9 +194,7 @@ public class Concessionaria
 	public boolean check_in (String s)
 	{
 		
-		Auto a = new Auto(s, null, 0, null, 0);
-		System.out.println(archivio.contains(a));
-		
+		Auto a = new Auto(s, null, 0, null, 0);		
 		return archivio.contains(a);
 		
 	}
@@ -217,6 +215,17 @@ public class Concessionaria
 		Matcher m = t.matcher(targa);
 		
 		return m.matches();
+	}
+	
+	/**
+	 * 
+	 * @return il numero di auto presenti nell'archivio
+	 * 
+	 * 
+	 * */
+	public int size ()
+	{
+		return archivio.size ();
 	}
 	
 	/**

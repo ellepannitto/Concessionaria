@@ -1,0 +1,69 @@
+ Concessionaria
+ │
+ ├── concessionaria
+ │   ├── Auto.java
+ │   ├── AutoNuova.java
+ │   ├── AutoUsata.java
+ │   ├── Cliente.java
+ │   └── Concessionaria.java
+ │
+ ├── compare
+ │   ├── CompareByCilindrata.java
+ │   ├── CompareByModello.java
+ │   ├── CompareByPrezzo.java
+ │   ├── CompareByTarga.java
+ │   └── NoSorting.java
+ │
+ ├── filters
+ │   ├── FilterByCustomer.java
+ │   ├── FilterByKm.java
+ │   ├── FilterByMatriculationYear.java
+ │   ├── FilterByTarga.java
+ │   ├── FilterByType.java
+ │   ├── Filterer.java
+ │   └── MultipleFiltererAuto.java
+ │
+ ├── exceptions
+ │   ├── AutoException.java
+ │   └── DateException.java
+ │
+ ├── main
+ │   └── Main.java
+ │
+ └── menu
+     ├── MenuInterface.java
+     ├── menuItem
+     │   │
+     │   ├── editors
+     │   │   ├── EditColore.java
+     │   │   ├── EditDeliveryDate.java
+     │   │   └── EditPrezzo.java
+     │   │
+     │   ├── filterCreators
+     │   │   ├── Exit.java
+     │   │   ├── FilterByCostumerCreator.java
+     │   │   ├── FilterByKmCreator.java
+     │   │   ├── FilterByMatriculationYearCreator.java
+     │   │   ├── FilterByTargaCreator.java
+     │   │   └── FilterByTypeCreator.java
+     │   │
+     │   ├── sortingCreators
+     │   │   ├── CompareByCilindrataCreator.java
+     │   │   ├── CompareByModelloCreator.java
+     │   │   ├── CompareByPrezzoCreator.java
+     │   │   ├── CompareByTargaCreator.java
+     │   │   ├── NoSortingCreator.java
+     │   │   ├── SortingCreator.java
+     │   │   └── SortingSelector.java
+     │   │
+     │   ├── Add.java
+     │   ├── Edit.java
+     │   ├── Exit.java
+     │   ├── Load.java
+     │   ├── MenuItem.java
+     │   ├── NextDelivery.java
+     │   ├── Remove.java
+     │   ├── Save.java
+     │   └── Show.java
+     │   
+     └── Menu.java

@@ -43,11 +43,14 @@ public class Save implements MenuItem
 		try
 		{
 			c.dump(filename);
+			m.show("Archivio salvato su file: "+filename);
 		}
 		catch (IOException e)
 		{
 			m.show_error("Impossibile salvare l'archivio su file", e);
 		}
+		
+		m.wait_input();
 		
 	}
 	

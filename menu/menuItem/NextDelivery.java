@@ -42,12 +42,13 @@ public class NextDelivery implements MenuItem
 		{
 			Auto a = c.getNextDelivery();
 			m.show(a.toString());
-			m.wait_input();
 		}
 		catch (AutoException e)
 		{
 			m.show_error("Impossibile mostrare la prossima consegna", e);
 		}
+		
+		m.wait_input();
 			
 	}
 	

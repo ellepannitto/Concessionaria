@@ -36,11 +36,14 @@ public class Remove implements MenuItem
 		try
 		{
 			c.remove_auto(a);
+			m.show("Auto rimossa con successo");
 		}
 		catch (AutoException e)
 		{
 			m.show_error("Impossibile rimuovere auto dall'archivio", e);
 		}
+		
+		m.wait_input();
 
 	}
 	

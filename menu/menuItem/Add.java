@@ -39,11 +39,14 @@ public class Add implements MenuItem
 		try
 		{
 			c.add_auto(a);
+			m.show ("Auto aggiunta correttamente");
 		}
 		catch (AutoException e)
 		{
 			m.show_error("Impossibile aggiungere auto", e);
 		}
+		
+		m.wait_input();
 		
 	}
 	

@@ -1,4 +1,4 @@
-package menu.menuItems.editors;
+package menu.menuItem.editors;
 
 import java.util.*;
 
@@ -21,6 +21,7 @@ public class EditDeliveryDate implements MenuItem
 	{
 		String t = m.get_string("targa");
 		
+		
 		GregorianCalendar d = m.get_data("data");
 
 		Auto a = new Auto(t, null, 0, null, 0);
@@ -28,11 +29,14 @@ public class EditDeliveryDate implements MenuItem
 		try
 		{
 			concessionaria.setNewDeliveryDate(a, d);
+			m.show("Modifica registrata.\n"+a.toString());
 		}
 		catch (AutoException | DateException e)
 		{
 			m.show_error("Impossibile settare nuova data", e);
 		}
+		
+		m.wait_input ();
 		
 	}
 	
