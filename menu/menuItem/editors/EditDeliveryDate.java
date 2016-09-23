@@ -19,17 +19,24 @@ public class EditDeliveryDate implements MenuItem
 	
 	public void selected(Menu m)
 	{
-		String t = m.get_string("targa");
+		Auto[] lista = concessionaria.list_autos();
+		
+		for (Auto a:lista)
+		{
+			m.show( a.toString() );
+		}
+		
+		String t = m.get_string("Inserisci targa dell'auto da modificare");
 		
 		
-		GregorianCalendar d = m.get_data("data");
+		GregorianCalendar d = m.get_data("Inserisci nuova data di consegna");
 
 		Auto a = new Auto(t, null, 0, null, 0);
 
 		try
 		{
 			concessionaria.setNewDeliveryDate(a, d);
-			m.show("Modifica registrata.\n"+a.toString());
+			m.show("Modifica registrata.\n");
 		}
 		catch (AutoException | DateException e)
 		{

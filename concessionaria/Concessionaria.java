@@ -109,6 +109,13 @@ public class Concessionaria
 		
 		return sorted_list;
 	}
+	
+	public Auto[] list_autos ()
+	{
+		Auto[] list = archivio.toArray( new Auto[archivio.size()] );
+		
+		return list;
+	}
 
 	/**
 	 * 

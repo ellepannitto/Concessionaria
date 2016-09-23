@@ -19,17 +19,24 @@ public class EditColore implements MenuItem
 	
 	public void selected(Menu m)
 	{
-		String t = m.get_string("targa");
+		Auto[] lista = concessionaria.list_autos();
+		
+		for (Auto a:lista)
+		{
+			m.show( a.toString() );
+		}
+		
+		String t = m.get_string("Inserisci targa dell'auto da modificare");
 		
 
-		String col = m.get_string("nuovo colore");
+		String col = m.get_string("Inserisci nuovo colore");
 
 		Auto a = new Auto(t, null, 0, null, 0);
 
 		try
 		{
 			concessionaria.setNewColor(a, col);
-			m.show("Modifica registrata.\n"+a.toString());
+			m.show("Modifica registrata.\n");
 			
 		}
 		catch (AutoException e)
