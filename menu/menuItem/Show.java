@@ -48,6 +48,8 @@ public class Show implements MenuItem
 		filters_to_show.add(new FilterByMatriculationYearCreator(filters));
 		filters_to_show.add(new FilterByTypeCreator(filters));
 		filters_to_show.add(new FilterByTargaCreator(filters));
+		filters_to_show.add(new FilterByPrezzoCreator(filters));
+		filters_to_show.add(new FilterByCilindrataCreator(filters));
 		menu.menuItem.filterCreators.Exit e = new menu.menuItem.filterCreators.Exit(filters);
 		filters_to_show.add(e);
 		

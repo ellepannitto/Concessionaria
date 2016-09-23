@@ -42,6 +42,11 @@ public class EditPrezzo implements MenuItem
 		String t = m.get_string("Inserisci targa dell'auto da modificare");
 				
 		float prezzo = m.get_float("Inserisci nuovo prezzo");
+		
+		while (!concessionaria.check_prezzo(prezzo))
+		{
+			prezzo = m.get_float ("Il prezzo inserito non è valido, inserisci di nuovo");
+		}
 
 		Auto a = new Auto(t, null, 0, null, 0);
 

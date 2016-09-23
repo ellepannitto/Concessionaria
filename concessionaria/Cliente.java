@@ -18,7 +18,6 @@ public class Cliente implements Serializable
 	 * 
 	 * @param n nome del cliente
 	 * @param c cognome del cliente
-	 * @param cf codice fiscale del cliente
 	 * 
 	 * */
 	public Cliente (String n, String c)
